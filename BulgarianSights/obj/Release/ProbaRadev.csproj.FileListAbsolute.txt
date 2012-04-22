@@ -1,0 +1,10 @@
+D:\Lyubo\Radev\ProbaRadev\BulgarianSights\bin\BulgarianSights.dll
+D:\Lyubo\Radev\ProbaRadev\BulgarianSights\bin\BulgarianSights.pdb
+D:\Lyubo\Radev\ProbaRadev\BulgarianSights\obj\Release\ResolveAssemblyReference.cache
+D:\Lyubo\Radev\ProbaRadev\BulgarianSights\obj\Release\BulgarianSights.dll
+D:\Lyubo\Radev\ProbaRadev\BulgarianSights\obj\Release\BulgarianSights.pdb
+C:\Users\Radev\Desktop\Lyubo\Radev\Radev\ProbaRadev\BulgarianSights\bin\BulgarianSights.dll
+C:\Users\Radev\Desktop\Lyubo\Radev\Radev\ProbaRadev\BulgarianSights\bin\BulgarianSights.pdb
+C:\Users\Radev\Desktop\Lyubo\Radev\Radev\ProbaRadev\BulgarianSights\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Radev\Desktop\Lyubo\Radev\Radev\ProbaRadev\BulgarianSights\obj\Release\BulgarianSights.dll
+C:\Users\Radev\Desktop\Lyubo\Radev\Radev\ProbaRadev\BulgarianSights\obj\Release\BulgarianSights.pdb
