@@ -8,3 +8,8 @@ C:\Users\Radev\Desktop\Lyubo\Radev\Radev\BulgarianSights\BulgarianSights\bin\Bul
 C:\Users\Radev\Desktop\Lyubo\Radev\Radev\BulgarianSights\BulgarianSights\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Radev\Desktop\Lyubo\Radev\Radev\BulgarianSights\BulgarianSights\obj\Debug\BulgarianSights.dll
 C:\Users\Radev\Desktop\Lyubo\Radev\Radev\BulgarianSights\BulgarianSights\obj\Debug\BulgarianSights.pdb
+C:\Users\Radev\Desktop\Lyubo\BulgarianSights\BulgarianSights\bin\BulgarianSights.dll
+C:\Users\Radev\Desktop\Lyubo\BulgarianSights\BulgarianSights\bin\BulgarianSights.pdb
+C:\Users\Radev\Desktop\Lyubo\BulgarianSights\BulgarianSights\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Radev\Desktop\Lyubo\BulgarianSights\BulgarianSights\obj\Debug\BulgarianSights.dll
+C:\Users\Radev\Desktop\Lyubo\BulgarianSights\BulgarianSights\obj\Debug\BulgarianSights.pdb

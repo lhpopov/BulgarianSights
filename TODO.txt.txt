@@ -1,0 +1,7 @@
+- suggestion of the day
+- google-like map (when a pointer on the map is clicked, additional info is opened whilte the map still stays on the screen
+
+
+------------------ useful links ---------------------------------
+
+http://www.maptiler.org/google-maps-coordinates-tile-bounds-projection/

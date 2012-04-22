@@ -6,5 +6,6 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
 <div id="map" style="width: auto; border: solid 1px red; height: 600px; color: white">
 </div>
-
+<div id="LabelCoords" style="width: 200px; height: 30px; background: blue; color: white;"s>
+</div>
 </asp:Content>
