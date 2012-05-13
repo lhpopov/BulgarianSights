@@ -1,6 +1,11 @@
-var map;
+
+
 
 function init() {
+    size = new OpenLayers.Size(21, 25);
+    offset = new OpenLayers.Pixel(-(size.w / 2), -size.h);
+    mainIcon = new OpenLayers.Icon('http://www.openlayers.org/dev/img/marker.png', size, offset);
+
     var mapOptions = {
         //maxExtent: new OpenLayers.Bounds(2506433.34506, 5042867.48642, 3195589.59199, 5491094.22022),
 
@@ -82,24 +87,13 @@ function init() {
     var offset = new OpenLayers.Pixel(-(size.w / 2), -size.h);
     var icon = new OpenLayers.Icon('http://www.openlayers.org/dev/img/marker.png', size, offset);
     markers.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(2810458.86, 5258913.45), icon));
-    
 
- 
 
-}
-
-function addMarkerToMap(x, y, objectName) {
-
-    var size = new OpenLayers.Size(21, 25);
-    var offset = new OpenLayers.Pixel(-(size.w / 2), -size.h);
-    var icon = new OpenLayers.Icon('http://www.openlayers.org/dev/img/marker.png', size, offset);
-    var coords = new OpenLayers.LonLat(x, y);
-    var marker = new OpenLayers.Marker(coords, icon);
-    var markers = new OpenLayers.Layer.Markers(objectName);
-    map.addLayer(markers);
-    markers.addMarker(marker);
+    ShowObjectsOnLoadMap();
 
 }
+
+
 
 function putMarker(){
     map.events.register("click", map, function(e) {
@@ -112,9 +106,6 @@ function putMarker(){
     markerslayer.addMarker(new OpenLayers.Marker(position, icon));
         })
 }
-    
-
-
 
 
 

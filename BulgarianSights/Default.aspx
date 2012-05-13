@@ -22,32 +22,56 @@
             map.setCenter(coords, zoomLevel);
         }
 
-        function ShowObjectsOnLoadMap() {
-            var site = new Object();
+        function addMarkerToMap(x, y, objectName) {
 
-            var grid = document.getElementById("GridViewMapObjects");
-            //var x = grid.rows[1].cells[9].innerHTML;
+            var size = new OpenLayers.Size(21, 25);
+            var offset = new OpenLayers.Pixel(-(size.w / 2), -size.h);
+            var icon = new OpenLayers.Icon('http://www.openlayers.org/dev/img/marker.png', size, offset);
+            var coords = new OpenLayers.LonLat(x, y);
+            var marker = new OpenLayers.Marker(coords, icon);
+            var markers = new OpenLayers.Layer.Markers(objectName);
+            map.addLayer(markers);
+            markers.addMarker(marker);
 
-            for (i in grid.rows) {
-                //for (j in grid.rows[i].cells) {
-
-                site.x = grid.rows[i].cells[9].innerHTML;
-                site.y = grid.rows[i].cells[10].innerHTML;
-
-                var objectName = grid.rows[1].cells[2].innerHTML;
-                var coords = new OpenLayers.LonLat(site.x, site.y);
-                var zoomLevel = 7;
-
-                addMarkerToMap(site.x, site.y, objectName);
-                
-                //}
-            }
-            
         }
 
-        $(document).ready(function () {
-            
-        });
+
+
+        function ShowObjectsOnLoadMap() {
+
+            var markers = new OpenLayers.Layer.Markers("Културно-исторически обекти");
+            map.addLayer(markers);
+            var site = new Object();
+            var objects = new Array ("GridViewSiteObjects", "GridViewEventObjects", "GridViewDocObjects");
+
+            for(layer in objects)
+                {
+
+                var grid = document.getElementById(objects[layer]);
+                for (i in grid.rows) {
+                    //for (j in grid.rows[i].cells) {
+                    if (i == 0)
+                        continue;
+                    site.x = grid.rows[i].cells[9].innerHTML;
+                    site.y = grid.rows[i].cells[10].innerHTML;
+
+                    var objectName = grid.rows[i].cells[2].innerHTML;
+                    var zoomLevel = 7;
+
+                    //addMarkerToMap(site.x, sitey, objectName);
+
+                    var icon = mainIcon.clone();
+                    var coords = new OpenLayers.LonLat(site.x, site.y);
+                    var marker = new OpenLayers.Marker(coords, icon);
+
+                    markers.addMarker(marker);
+
+                    //}
+                }
+            }
+
+        }
+       
 
     </script>
 
@@ -124,9 +148,19 @@
 </asp:UpdatePanel>
 
 
-<asp:GridView ID="GridViewMapObjects" runat="server" style="display: none;" ClientIDMode="Static">
+<asp:GridView ID="GridViewSiteObjects" runat="server" style="display: none;" ClientIDMode="Static">
 </asp:GridView>
-<h1>
 
-</h1>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        
+
+    });
+    
+</script>
+
 </asp:Content>
+
+

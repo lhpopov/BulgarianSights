@@ -16,8 +16,8 @@ namespace BulgarianSights
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            GridViewMapObjects.DataSource = GetCulturalAndHistoricSitesOnMap();
-            GridViewMapObjects.DataBind();
+            GridViewSiteObjects.DataSource = GetCulturalAndHistoricSitesOnMap();
+            GridViewSiteObjects.DataBind();
         }
         
 
