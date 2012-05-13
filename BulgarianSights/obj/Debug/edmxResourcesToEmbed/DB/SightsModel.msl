@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="SightsDBModelStoreContainer" CdmEntityContainer="SightsDBEntities1">
+  <EntityContainerMapping StorageEntityContainer="SightsDBModelStoreContainer" CdmEntityContainer="SightsDBEntities">
     <EntitySetMapping Name="CulturalAndHistoricSites">
       <EntityTypeMapping TypeName="SightsDBModel.CulturalAndHistoricSites">
         <MappingFragment StoreEntitySet="CulturalAndHistoricSites">
-          <ScalarProperty Name="idObject" ColumnName="idObject" />
-          <ScalarProperty Name="object" ColumnName="object" />
-          <ScalarProperty Name="objectName" ColumnName="objectName" />
+          <ScalarProperty Name="idSite" ColumnName="idSite" />
+          <ScalarProperty Name="site" ColumnName="site" />
+          <ScalarProperty Name="siteName" ColumnName="siteName" />
           <ScalarProperty Name="area" ColumnName="area" />
           <ScalarProperty Name="location" ColumnName="location" />
           <ScalarProperty Name="age" ColumnName="age" />
           <ScalarProperty Name="importance" ColumnName="importance" />
           <ScalarProperty Name="culture" ColumnName="culture" />
           <ScalarProperty Name="eventId" ColumnName="eventId" />
-          <ScalarProperty Name="objectX" ColumnName="objectX" />
-          <ScalarProperty Name="objectY" ColumnName="objectY" />
+          <ScalarProperty Name="siteX" ColumnName="siteX" />
+          <ScalarProperty Name="siteY" ColumnName="siteY" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -43,7 +43,7 @@
                     <Items>
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Начало"/>
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
-                        <asp:MenuItem NavigateUrl="~/Courses.aspx" Text="Обекти"/>
+                        <asp:MenuItem NavigateUrl="~/Articles.aspx" Text="Обекти"/>
                         <asp:MenuItem NavigateUrl="~/CoursesAdd.aspx" Text="Add Courses" />
                         
                     </Items>

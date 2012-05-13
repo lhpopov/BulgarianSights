@@ -65,7 +65,6 @@
       <DependentUpon>SightsDB.mdf</DependentUpon>
     </Content>
     <Content Include="Articles.aspx" />
-    <Content Include="Courses.aspx" />
     <Content Include="CoursesAdd.aspx" />
     <Content Include="Images\buttons\pan.png" />
     <Content Include="Images\green_pin.png" />
@@ -2131,14 +2130,11 @@
     <Compile Include="Articles.aspx.designer.cs">
       <DependentUpon>Articles.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Courses.aspx.cs">
-      <DependentUpon>Courses.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="CoursesAdd.aspx.cs">
       <DependentUpon>CoursesAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="DB\DatabaseManager.cs" />
     <Compile Include="DB\SightsModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2154,6 +2150,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HelpObjects\TestCulturalAndHistoricSites.cs" />
     <Compile Include="Map.aspx.cs">
       <DependentUpon>Map.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2168,6 +2165,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <None Include="TestCode.cs_" />
+    <Compile Include="TestCode.cs.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCode.cs.designer.cs">
+      <DependentUpon>TestCode.cs.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

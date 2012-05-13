@@ -5,8 +5,8 @@
     <h2>Articles List</h2>
 
     <asp:EntityDataSource ID="CulturalAndHistoricSites" runat="server" 
-        ConnectionString="name=SightsDBEntities1" 
-        DefaultContainerName="SightsDBEntities1" EnableDelete="True" 
+        ConnectionString="name=SightsDBEntities" 
+        DefaultContainerName="SightsDBEntities" EnableDelete="True" 
         EnableFlattening="False" EnableUpdate="True" 
         EntitySetName="CulturalAndHistoricSites" EnableInsert="True">
     </asp:EntityDataSource>
@@ -15,16 +15,16 @@
 
 
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" 
-        AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="idObject" 
+        AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="idsite" 
         DataSourceID="CulturalAndHistoricSites">
         <Columns>
             <asp:CommandField ShowEditButton="True" />
-            <asp:BoundField DataField="idObject" HeaderText="idObject" ReadOnly="True" 
-                SortExpression="idObject" />
-            <asp:BoundField DataField="object" HeaderText="object" 
-                SortExpression="object" />
-            <asp:BoundField DataField="objectName" HeaderText="objectName" 
-                SortExpression="objectName" />
+            <asp:BoundField DataField="idSite" HeaderText="idSite" ReadOnly="True" 
+                SortExpression="idSite" />
+            <asp:BoundField DataField="site" HeaderText="site" 
+                SortExpression="site" />
+            <asp:BoundField DataField="siteName" HeaderText="siteName" 
+                SortExpression="siteName" />
             <asp:BoundField DataField="area" HeaderText="area" SortExpression="area" />
             <asp:BoundField DataField="location" HeaderText="location" 
                 SortExpression="location" />
@@ -35,15 +35,26 @@
                 SortExpression="culture" />
             <asp:BoundField DataField="eventId" HeaderText="eventId" 
                 SortExpression="eventId" />
-            <asp:BoundField DataField="objectX" HeaderText="objectX" 
-                SortExpression="objectX" />
-            <asp:BoundField DataField="objectY" HeaderText="objectY" 
-                SortExpression="objectY" />
+            <asp:BoundField DataField="siteX" HeaderText="siteX" 
+                SortExpression="siteX" />
+            <asp:BoundField DataField="siteY" HeaderText="siteY" 
+                SortExpression="siteY" />
         </Columns>
     </asp:GridView>
 
 
+    <asp:TextBox ID="textbox1" runat="server">
+    </asp:TextBox>
+
     <asp:Button ID="Button1" runat="server" Text="Button" 
     onclick="Button1_Click" />
+
+    <br />
+    <asp:TextBox ID="textbox2" runat="server">
+    </asp:TextBox>
+
+    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="true">
+    
+    </asp:GridView>
 
 </asp:Content>

@@ -18,7 +18,7 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("SightsDBModel", "FK_Events_CulturalAndHistoricSites", "CulturalAndHistoricSites", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BulgarianSights.DB.CulturalAndHistoricSites), "Events", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BulgarianSights.DB.Events), true)]
+[assembly: EdmRelationshipAttribute("SightsDBModel", "FK_Events_CulturalAndHistoricSites", "CulturalAndHistoricSites", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BulgarianSights.DB.CulturalAndHistoricSites), "Events", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BulgarianSights.DB.Events), true)]
 
 #endregion
 
@@ -29,32 +29,32 @@ namespace BulgarianSights.DB
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class SightsDBEntities1 : ObjectContext
+    public partial class SightsDBEntities : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new SightsDBEntities1 object using the connection string found in the 'SightsDBEntities1' section of the application configuration file.
+        /// Initializes a new SightsDBEntities object using the connection string found in the 'SightsDBEntities' section of the application configuration file.
         /// </summary>
-        public SightsDBEntities1() : base("name=SightsDBEntities1", "SightsDBEntities1")
+        public SightsDBEntities() : base("name=SightsDBEntities", "SightsDBEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new SightsDBEntities1 object.
+        /// Initialize a new SightsDBEntities object.
         /// </summary>
-        public SightsDBEntities1(string connectionString) : base(connectionString, "SightsDBEntities1")
+        public SightsDBEntities(string connectionString) : base(connectionString, "SightsDBEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new SightsDBEntities1 object.
+        /// Initialize a new SightsDBEntities object.
         /// </summary>
-        public SightsDBEntities1(EntityConnection connection) : base(connection, "SightsDBEntities1")
+        public SightsDBEntities(EntityConnection connection) : base(connection, "SightsDBEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -190,17 +190,17 @@ namespace BulgarianSights.DB
         /// <summary>
         /// Create a new CulturalAndHistoricSites object.
         /// </summary>
-        /// <param name="idObject">Initial value of the idObject property.</param>
-        /// <param name="object">Initial value of the object property.</param>
-        /// <param name="objectX">Initial value of the objectX property.</param>
-        /// <param name="objectY">Initial value of the objectY property.</param>
-        public static CulturalAndHistoricSites CreateCulturalAndHistoricSites(global::System.Int32 idObject, global::System.String @object, global::System.Double objectX, global::System.Double objectY)
+        /// <param name="idSite">Initial value of the idSite property.</param>
+        /// <param name="site">Initial value of the site property.</param>
+        /// <param name="siteX">Initial value of the siteX property.</param>
+        /// <param name="siteY">Initial value of the siteY property.</param>
+        public static CulturalAndHistoricSites CreateCulturalAndHistoricSites(global::System.Int32 idSite, global::System.String site, global::System.String siteX, global::System.String siteY)
         {
             CulturalAndHistoricSites culturalAndHistoricSites = new CulturalAndHistoricSites();
-            culturalAndHistoricSites.idObject = idObject;
-            culturalAndHistoricSites.@object = @object;
-            culturalAndHistoricSites.objectX = objectX;
-            culturalAndHistoricSites.objectY = objectY;
+            culturalAndHistoricSites.idSite = idSite;
+            culturalAndHistoricSites.site = site;
+            culturalAndHistoricSites.siteX = siteX;
+            culturalAndHistoricSites.siteY = siteY;
             return culturalAndHistoricSites;
         }
 
@@ -212,75 +212,75 @@ namespace BulgarianSights.DB
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 idObject
+        public global::System.Int32 idSite
         {
             get
             {
-                return _idObject;
+                return _idSite;
             }
             set
             {
-                if (_idObject != value)
+                if (_idSite != value)
                 {
-                    OnidObjectChanging(value);
-                    ReportPropertyChanging("idObject");
-                    _idObject = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("idObject");
-                    OnidObjectChanged();
+                    OnidSiteChanging(value);
+                    ReportPropertyChanging("idSite");
+                    _idSite = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("idSite");
+                    OnidSiteChanged();
                 }
             }
         }
-        private global::System.Int32 _idObject;
-        partial void OnidObjectChanging(global::System.Int32 value);
-        partial void OnidObjectChanged();
+        private global::System.Int32 _idSite;
+        partial void OnidSiteChanging(global::System.Int32 value);
+        partial void OnidSiteChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String @object
+        public global::System.String site
         {
             get
             {
-                return _object;
+                return _site;
             }
             set
             {
-                OnobjectChanging(value);
-                ReportPropertyChanging("object");
-                _object = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("object");
-                OnobjectChanged();
+                OnsiteChanging(value);
+                ReportPropertyChanging("site");
+                _site = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("site");
+                OnsiteChanged();
             }
         }
-        private global::System.String _object;
-        partial void OnobjectChanging(global::System.String value);
-        partial void OnobjectChanged();
+        private global::System.String _site;
+        partial void OnsiteChanging(global::System.String value);
+        partial void OnsiteChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String objectName
+        public global::System.String siteName
         {
             get
             {
-                return _objectName;
+                return _siteName;
             }
             set
             {
-                OnobjectNameChanging(value);
-                ReportPropertyChanging("objectName");
-                _objectName = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("objectName");
-                OnobjectNameChanged();
+                OnsiteNameChanging(value);
+                ReportPropertyChanging("siteName");
+                _siteName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("siteName");
+                OnsiteNameChanged();
             }
         }
-        private global::System.String _objectName;
-        partial void OnobjectNameChanging(global::System.String value);
-        partial void OnobjectNameChanged();
+        private global::System.String _siteName;
+        partial void OnsiteNameChanging(global::System.String value);
+        partial void OnsiteNameChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -431,48 +431,48 @@ namespace BulgarianSights.DB
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Double objectX
+        public global::System.String siteX
         {
             get
             {
-                return _objectX;
+                return _siteX;
             }
             set
             {
-                OnobjectXChanging(value);
-                ReportPropertyChanging("objectX");
-                _objectX = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("objectX");
-                OnobjectXChanged();
+                OnsiteXChanging(value);
+                ReportPropertyChanging("siteX");
+                _siteX = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("siteX");
+                OnsiteXChanged();
             }
         }
-        private global::System.Double _objectX;
-        partial void OnobjectXChanging(global::System.Double value);
-        partial void OnobjectXChanged();
+        private global::System.String _siteX;
+        partial void OnsiteXChanging(global::System.String value);
+        partial void OnsiteXChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Double objectY
+        public global::System.String siteY
         {
             get
             {
-                return _objectY;
+                return _siteY;
             }
             set
             {
-                OnobjectYChanging(value);
-                ReportPropertyChanging("objectY");
-                _objectY = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("objectY");
-                OnobjectYChanged();
+                OnsiteYChanging(value);
+                ReportPropertyChanging("siteY");
+                _siteY = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("siteY");
+                OnsiteYChanged();
             }
         }
-        private global::System.Double _objectY;
-        partial void OnobjectYChanging(global::System.Double value);
-        partial void OnobjectYChanged();
+        private global::System.String _siteY;
+        partial void OnsiteYChanging(global::System.String value);
+        partial void OnsiteYChanged();
 
         #endregion
     
@@ -485,17 +485,33 @@ namespace BulgarianSights.DB
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("SightsDBModel", "FK_Events_CulturalAndHistoricSites", "Events")]
-        public EntityCollection<Events> Events
+        public Events Events
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Events>("SightsDBModel.FK_Events_CulturalAndHistoricSites", "Events");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Events>("SightsDBModel.FK_Events_CulturalAndHistoricSites", "Events").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Events>("SightsDBModel.FK_Events_CulturalAndHistoricSites", "Events").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Events> EventsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Events>("SightsDBModel.FK_Events_CulturalAndHistoricSites", "Events");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Events>("SightsDBModel.FK_Events_CulturalAndHistoricSites", "Events", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Events>("SightsDBModel.FK_Events_CulturalAndHistoricSites", "Events", value);
                 }
             }
         }

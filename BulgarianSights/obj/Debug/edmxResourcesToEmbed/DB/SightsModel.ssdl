@@ -12,19 +12,19 @@
   </EntityContainer>
   <EntityType Name="CulturalAndHistoricSites">
     <Key>
-      <PropertyRef Name="idObject" />
+      <PropertyRef Name="idSite" />
     </Key>
-    <Property Name="idObject" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="object" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="objectName" Type="varchar" MaxLength="100" />
+    <Property Name="idSite" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="site" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="siteName" Type="varchar" MaxLength="100" />
     <Property Name="area" Type="varchar" MaxLength="100" />
-    <Property Name="location" Type="nchar" MaxLength="10" />
+    <Property Name="location" Type="varchar" MaxLength="100" />
     <Property Name="age" Type="varchar" MaxLength="100" />
     <Property Name="importance" Type="varchar" MaxLength="100" />
     <Property Name="culture" Type="varchar" MaxLength="100" />
     <Property Name="eventId" Type="int" />
-    <Property Name="objectX" Type="float" Nullable="false" />
-    <Property Name="objectY" Type="float" Nullable="false" />
+    <Property Name="siteX" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="siteY" Type="varchar" Nullable="false" MaxLength="10" />
   </EntityType>
   <EntityType Name="Documents">
     <Key>
@@ -64,13 +64,13 @@
   </EntityType>
   <Association Name="FK_Events_CulturalAndHistoricSites">
     <End Role="CulturalAndHistoricSites" Type="SightsDBModel.Store.CulturalAndHistoricSites" Multiplicity="1" />
-    <End Role="Events" Type="SightsDBModel.Store.Events" Multiplicity="*" />
+    <End Role="Events" Type="SightsDBModel.Store.Events" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="CulturalAndHistoricSites">
-        <PropertyRef Name="idObject" />
+        <PropertyRef Name="idSite" />
       </Principal>
       <Dependent Role="Events">
-        <PropertyRef Name="CulturalAndHistoricSitesId" />
+        <PropertyRef Name="idEvent" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

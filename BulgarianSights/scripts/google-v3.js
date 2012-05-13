@@ -22,7 +22,7 @@ function init() {
                         new OpenLayers.Control.Permalink('permalink'),
                         new OpenLayers.Control.MousePosition(),
                         new OpenLayers.Control.OverviewMap(),
-                        new OpenLayers.Control.KeyboardDefaults(),
+                        //new OpenLayers.Control.KeyboardDefaults(),
         //new OpenLayers.Control.DragPan({ title: "Премести карта" })
                     ]
     };

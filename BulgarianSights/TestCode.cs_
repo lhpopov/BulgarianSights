@@ -1,39 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using BulgarianSights.DB;
-using BulgarianSights.HelpObjects;
-using System.Data.SqlClient;
-
-
-namespace BulgarianSights
-{
-    public partial class _Default : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            GridViewMapObjects.DataSource = GetCulturalAndHistoricSitesOnMap();
-            GridViewMapObjects.DataBind();
-        }
-        
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        protected void bla_Click(object sender, EventArgs e)
-        {
-            
-
-
-        }
-
-        public List<CulturalAndHistoricSites> GetCulturalAndHistoricSitesOnMap()
+﻿public List<CulturalAndHistoricSites> GetCulturalAndHistoricSitesOnMap()
         {
             SightsDBEntities dbContext = new SightsDBEntities();
             List<CulturalAndHistoricSites> query = (from CulturalAndHistoricSites p in dbContext.CulturalAndHistoricSites
@@ -64,7 +29,5 @@ namespace BulgarianSights
 
             return query;
         }
-    }
 
 
-}
