@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SightsDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="SightsDBModelStoreContainer">
+    <EntitySet Name="CulturalAndHistoricSites" EntityType="SightsDBModel.Store.CulturalAndHistoricSites" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Documents" EntityType="SightsDBModel.Store.Documents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Events" EntityType="SightsDBModel.Store.Events" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="SightsDBModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Events_CulturalAndHistoricSites" Association="SightsDBModel.Store.FK_Events_CulturalAndHistoricSites">
+      <End Role="CulturalAndHistoricSites" EntitySet="CulturalAndHistoricSites" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CulturalAndHistoricSites">
+    <Key>
+      <PropertyRef Name="idObject" />
+    </Key>
+    <Property Name="idObject" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="object" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="objectName" Type="varchar" MaxLength="100" />
+    <Property Name="area" Type="varchar" MaxLength="100" />
+    <Property Name="location" Type="nchar" MaxLength="10" />
+    <Property Name="age" Type="varchar" MaxLength="100" />
+    <Property Name="importance" Type="varchar" MaxLength="100" />
+    <Property Name="culture" Type="varchar" MaxLength="100" />
+    <Property Name="eventId" Type="int" />
+    <Property Name="objectX" Type="float" Nullable="false" />
+    <Property Name="objectY" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Documents">
+    <Key>
+      <PropertyRef Name="idDocument" />
+    </Key>
+    <Property Name="idDocument" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="documentText" Type="varchar(max)" Nullable="false" />
+    <Property Name="documentName" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="area" Type="varchar" MaxLength="100" />
+    <Property Name="location" Type="varchar" MaxLength="100" />
+    <Property Name="age" Type="varchar" MaxLength="100" />
+    <Property Name="importance" Type="varchar" MaxLength="100" />
+    <Property Name="culture" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="idEvent" />
+    </Key>
+    <Property Name="idEvent" Type="int" Nullable="false" />
+    <Property Name="event" Type="varchar" Nullable="false" MaxLength="1000" />
+    <Property Name="eventName" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="area" Type="varchar" MaxLength="100" />
+    <Property Name="location" Type="varchar" MaxLength="100" />
+    <Property Name="age" Type="varchar" MaxLength="100" />
+    <Property Name="date" Type="varchar" MaxLength="10" />
+    <Property Name="CulturalAndHistoricSitesId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Events_CulturalAndHistoricSites">
+    <End Role="CulturalAndHistoricSites" Type="SightsDBModel.Store.CulturalAndHistoricSites" Multiplicity="1" />
+    <End Role="Events" Type="SightsDBModel.Store.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CulturalAndHistoricSites">
+        <PropertyRef Name="idObject" />
+      </Principal>
+      <Dependent Role="Events">
+        <PropertyRef Name="CulturalAndHistoricSitesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

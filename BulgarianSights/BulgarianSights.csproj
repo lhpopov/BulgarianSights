@@ -35,9 +35,13 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -56,6 +60,14 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="App_Data\SightsDB.mdf" />
+    <Content Include="App_Data\SightsDB_log.ldf">
+      <DependentUpon>SightsDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="Articles.aspx" />
+    <Content Include="Courses.aspx" />
+    <Content Include="CoursesAdd.aspx" />
+    <Content Include="Images\buttons\pan.png" />
     <Content Include="Images\green_pin.png" />
     <Content Include="Map.aspx" />
     <Content Include="scripts\google-v3.js" />
@@ -2063,6 +2075,7 @@
     <Content Include="scripts\openlayers\tools\README.txt" />
     <Content Include="scripts\openlayers\tools\shrinksafe.py" />
     <Content Include="scripts\openlayers\tools\toposort.py" />
+    <Content Include="Styles\MapStyle.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -2111,6 +2124,26 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Articles.aspx.cs">
+      <DependentUpon>Articles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Articles.aspx.designer.cs">
+      <DependentUpon>Articles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Courses.aspx.cs">
+      <DependentUpon>Courses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CoursesAdd.aspx.cs">
+      <DependentUpon>CoursesAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DB\SightsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SightsModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2137,14 +2170,16 @@
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="DB\SightsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SightsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="scripts\openlayers\apidoc_config\Data\ClassHierarchy.nd" />
     <None Include="scripts\openlayers\apidoc_config\Data\ConfigFileInfo.nd" />
     <None Include="scripts\openlayers\apidoc_config\Data\FileInfo.nd" />

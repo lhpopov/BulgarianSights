@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head runat="server">
     <title>Забележителности на България</title>
-    <meta http-equiv="content-type" content="UTF8" 
+    <meta http-equiv="content-type" content="UTF8" />
     <meta name="Author" content="George Radev" />
 
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
@@ -18,11 +18,13 @@
 </head>
 <body onload="init()">
     <form runat="server">
+    <asp:ScriptManager ID="ScriptManagerMaster" runat="server">
+    </asp:ScriptManager>
     <div class="page">
         <div class="header">
             <div class="title">
                 <h1>
-                    My ASP.NET Application
+                    Забележителности на България
                 </h1>
             </div>
             <div class="loginDisplay">
@@ -31,7 +33,7 @@
                         [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
                     </AnonymousTemplate>
                     <LoggedInTemplate>
-                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        Здравей,  <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
                         [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
                     </LoggedInTemplate>
                 </asp:LoginView>
@@ -39,8 +41,11 @@
             <div class="clear hideSkiplink">
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                     <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Начало"/>
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
+                        <asp:MenuItem NavigateUrl="~/Courses.aspx" Text="Обекти"/>
+                        <asp:MenuItem NavigateUrl="~/CoursesAdd.aspx" Text="Add Courses" />
+                        
                     </Items>
                 </asp:Menu>
             </div>

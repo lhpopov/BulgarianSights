@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SightsDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="SightsDBEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CulturalAndHistoricSites" EntityType="SightsDBModel.CulturalAndHistoricSites" />
+    <EntitySet Name="Documents" EntityType="SightsDBModel.Documents" />
+    <EntitySet Name="Events" EntityType="SightsDBModel.Events" />
+    <EntitySet Name="sysdiagrams" EntityType="SightsDBModel.sysdiagrams" />
+    <AssociationSet Name="FK_Events_CulturalAndHistoricSites" Association="SightsDBModel.FK_Events_CulturalAndHistoricSites">
+      <End Role="CulturalAndHistoricSites" EntitySet="CulturalAndHistoricSites" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CulturalAndHistoricSites">
+    <Key>
+      <PropertyRef Name="idObject" />
+    </Key>
+    <Property Name="idObject" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="object" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="objectName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="area" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="location" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="age" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="importance" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="culture" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="eventId" Type="Int32" />
+    <Property Name="objectX" Type="Double" Nullable="false" />
+    <Property Name="objectY" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Events" Relationship="SightsDBModel.FK_Events_CulturalAndHistoricSites" FromRole="CulturalAndHistoricSites" ToRole="Events" />
+  </EntityType>
+  <EntityType Name="Documents">
+    <Key>
+      <PropertyRef Name="idDocument" />
+    </Key>
+    <Property Name="idDocument" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="documentText" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="documentName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="area" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="location" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="age" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="importance" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="culture" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="idEvent" />
+    </Key>
+    <Property Name="idEvent" Type="Int32" Nullable="false" />
+    <Property Name="event" Type="String" Nullable="false" MaxLength="1000" Unicode="false" FixedLength="false" />
+    <Property Name="eventName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="area" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="location" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="age" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="date" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="CulturalAndHistoricSitesId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CulturalAndHistoricSites" Relationship="SightsDBModel.FK_Events_CulturalAndHistoricSites" FromRole="Events" ToRole="CulturalAndHistoricSites" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Events_CulturalAndHistoricSites">
+    <End Role="CulturalAndHistoricSites" Type="SightsDBModel.CulturalAndHistoricSites" Multiplicity="1" />
+    <End Role="Events" Type="SightsDBModel.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CulturalAndHistoricSites">
+        <PropertyRef Name="idObject" />
+      </Principal>
+      <Dependent Role="Events">
+        <PropertyRef Name="CulturalAndHistoricSitesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

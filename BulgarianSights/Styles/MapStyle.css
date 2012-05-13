@@ -1,0 +1,334 @@
+﻿.olContainer {
+	
+	width: 100%;
+	float:left;
+}
+
+#olMap {
+	width: 100%;
+	height: 100%;
+	
+}
+
+.olStatusBarContainer {
+	background-color: #EEEEEE;
+	border: 1px solid #000000;
+	font-size: smaller;
+	overflow: hidden;
+}
+
+.olStatusBar {
+	height: 10px;
+	border-right: 1px solid #000000;
+	display: inline;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 1px;
+	padding-right: 1px;
+	position: relative;
+	width: auto;
+}
+
+.olStatusBarScale {
+	font-style: italic;
+}
+
+.olStatusBarPermalink {
+    font-weight: bold;
+}
+
+.olStatusBarMouseposition {
+	
+}
+
+.olStatusBarProjection {
+	font-style: italic;
+}
+
+.olStatusBarText {
+	
+}
+
+.olControlOverviewMapElement {
+	background-color: #DDDDDD;
+	padding: 5px;
+	filter: alpha(opacity =   80);
+	-moz-opacity: .8;
+	-khtml-opacity: .8;
+	opacity: .8;
+}
+
+
+div#olToolbar {
+	
+	background-color: #EEEEEE;
+	
+	padding: 0px;
+}
+
+
+.olToolbar div {
+	width: 30px;
+	height: 30px;
+	margin: 1px;
+    float:left;
+}
+  
+
+
+
+
+.olToolbar .featureInfoItemInactive
+{
+	background-image: url("images/buttons/info.png");
+	background-position: center;
+	background-repeat: no-repeat;
+    }
+    
+    .olToolbar .featureInfoItemInactive:hover
+{
+	background-image: url("images/buttons/infoU.png");
+	background-position: center;
+	background-repeat: no-repeat;
+    }
+
+.olToolbar .featureInfoItemActive
+{
+	/*background-color: #DDDDDD;*/
+	background-image: url("images/buttons/infoD.png");
+	background-position: center;
+	background-repeat: no-repeat;
+ }
+ 
+/* .olToolbar .olControlFeatureInfoItemActive {
+	background-color: #DDDDDD;
+	background-image: url("images/buttons/infoD.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.olToolbar .olControlFeatureInfoItemInactive {
+	background-image: url("images/buttons/infoU.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.olToolbar .olControlFeatureInfoItemInactive:hover {
+	background-image: url("images/buttons/infoU.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+*/
+ 
+ .olToolbar .featureSelectItemInactive
+{
+	background-image: url("images/buttons/select.png");
+	background-position: center;
+	background-repeat: no-repeat;
+    }
+    
+     .olToolbar .featureSelectItemInactive:hover
+{
+	background-image: url("images/buttons/selectU.png");
+	background-position: center;
+	background-repeat: no-repeat;
+    }
+
+.olToolbar .featureSelectItemActive
+{
+	background-color: #DDDDDD;
+	background-image: url("images/buttons/selectD.png");
+	background-position: center;
+	background-repeat: no-repeat;
+ }
+
+ .olToolbar .featureSelectBufferItemInactive
+{
+	background-image: url("images/buttons/buffer.png");
+	background-position: center;
+	background-repeat: no-repeat;
+    }
+    
+    .olToolbar .featureSelectBufferItemInactive:hover
+{
+	background-image: url("images/buttons/bufferU.png");
+	background-position: center;
+	background-repeat: no-repeat;
+    }
+
+.olToolbar .featureSelectBufferItemActive
+{
+	background-color: #DDDDDD;
+	background-image: url("images/buttons/bufferD.png");
+	background-position: center;
+	background-repeat: no-repeat;
+ }
+
+.olToolbar .measureLineItemInactive
+{
+	background-image: url("images/buttons/measure-line.png");
+	background-position: center;
+	background-repeat: no-repeat;
+    }
+
+.olToolbar .measureLineItemInactive:hover
+{
+	background-image: url("images/buttons/measure-lineU.png");
+	background-position: center;
+	background-repeat: no-repeat;
+    }
+
+.olToolbar .measureLineItemActive
+{
+	background-color: #DDDDDD;
+	background-image: url("images/buttons/measure-lineD.png");
+	background-position: center;
+	background-repeat: no-repeat;
+ }
+ 
+ .olToolbar .measurePolygonItemInactive:hover
+{
+	background-image: url("images/buttons/measure-polyU.png");
+	background-position: center;
+	background-repeat: no-repeat;
+    }
+
+.olToolbar .measurePolygonItemInactive
+{
+	background-image: url("images/buttons/measure-poly.png");
+	background-position: center;
+	background-repeat: no-repeat;
+    }
+
+.olToolbar .measurePolygonItemActive
+{
+	background-color: #DDDDDD;
+	background-image: url("images/buttons/measure-polyD.png");
+	background-position: center;
+	background-repeat: no-repeat;
+ }
+ 
+ .olToolbar .measurePointItemInactive:hover
+{
+	background-image: url("images/buttons/measure-pointU.png");
+	background-position: center;
+	background-repeat: no-repeat;
+    }
+    
+     .olToolbar .measurePointItemInactive
+{
+	background-image: url("images/buttons/measure-point.png");
+	background-position: center;
+	background-repeat: no-repeat;
+    }
+
+.olToolbar .measurePointItemActive
+{
+	background-color: #DDDDDD;
+	background-image: url("images/buttons/measure-pointD.png");
+	background-position: center;
+	background-repeat: no-repeat;
+ }
+
+.olToolbar .olControlZoomBoxItemActive {
+	background-color: #DDDDDD;
+	background-image: url("images/buttons/zoomInD.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.olToolbar .olControlZoomBoxItemInactive {
+	background-image: url("images/buttons/zoomIn.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.olToolbar .olControlZoomBoxItemInactive:hover {
+	background-image: url("images/buttons/zoomInU.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.olToolbar .olControlZoomOutItemActive {
+	background-color: #DDDDDD;
+	background-image: url("images/buttons/zoomOutD.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.olToolbar .olControlZoomOutItemInactive {
+	background-image: url("images/buttons/zoomOut.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.olToolbar .olControlZoomOutItemInactive:hover {
+	background-image: url("images/buttons/zoomOutU.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.olToolbar .olControlDragPanItemActive {
+	background-color: #DDDDDD;
+	background-image: url("images/buttons/pan.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.olToolbar .olControlDragPanItemInactive {
+	background-image: url("images/buttons/pan.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.olToolbar .olControlDragPanItemInactive:hover {
+	background-image: url("images/buttons/pan.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+
+.olToolbar .olControlZoomToMaxExtentItemInactive {
+    top: 18px;
+    left: 0px;
+    background-position: center;
+    background-image: url("images/buttons/fullExt.png");
+    background-repeat: no-repeat;
+}
+
+
+.olToolbar .clearSelectionItemActive
+{
+	/*background-color: #DDDDDD;*/
+	background-image: url("images/buttons/clear.png");
+	background-position: center;
+	background-repeat: no-repeat;
+ }
+ 
+ .olToolbar .clearSelectionItemInactive
+{
+	background-image: url("images/buttons/clear.png");
+	background-position: center;
+	background-repeat: no-repeat;
+    }
+    
+  .olContainer   .olControlLoadingPanel {
+            background-image:url("images/loading3.gif");
+            width: 128px;
+            height: 15px;           
+            display:block;
+            position:absolute;
+            top:50%;
+            left:45%;
+        }
+
+.drawSelectionRect {
+    border: 2px solid #990000;
+    position: absolute;
+    background-color: white;
+    opacity: 0.50;
+    font-size: 1px;
+    filter: alpha(opacity=50);
+}
+
+    
