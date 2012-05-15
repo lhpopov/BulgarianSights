@@ -37,17 +37,20 @@
 
 
 
-        function ShowObjectsOnLoadMap() {
-
-            var markers = new OpenLayers.Layer.Markers("Културно-исторически обекти");
+        function ShowObjectsOnLoadMap(icon, marker) {
+            var layerNames = new Array("Културно-исторически обекти", "Събития", "Документи")
+            var markers;// = new OpenLayers.Layer.Markers("Културно-исторически обекти");
             map.addLayer(markers);
             var site = new Object();
             var objects = new Array ("GridViewSiteObjects", "GridViewEventObjects", "GridViewDocObjects");
 
             for(layer in objects)
                 {
-
+                markers = new OpenLayers.Layer.Markers(layerNames[layer]);
+                map.addLayer(markers);
+                
                 var grid = document.getElementById(objects[layer]);
+                
                 for (i in grid.rows) {
                     //for (j in grid.rows[i].cells) {
                     if (i == 0)
@@ -57,10 +60,17 @@
 
                     var objectName = grid.rows[i].cells[2].innerHTML;
                     var zoomLevel = 7;
-
+                
+                    var icon;
                     //addMarkerToMap(site.x, sitey, objectName);
-
-                    var icon = mainIcon.clone();
+                     if(objects[layer] == "GridViewSiteObjects")
+                     icon = new OpenLayers.Icon('images/green_pin.png', size, offset);
+                            else if(objects[layer] == "GridViewEventObjects")
+                     icon = new OpenLayers.Icon('images/buttons/pan.png', size, offset);
+                            else 
+                     icon = mainIcon.clone();
+                        
+                    //var icon = mainIcon.clone();
                     var coords = new OpenLayers.LonLat(site.x, site.y);
                     var marker = new OpenLayers.Marker(coords, icon);
 
