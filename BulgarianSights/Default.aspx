@@ -39,8 +39,10 @@
 
         function ShowObjectsOnLoadMap(icon, marker) {
             var layerNames = new Array("Културно-исторически обекти", "Събития", "Документи")
-            var markers;// = new OpenLayers.Layer.Markers("Културно-исторически обекти");
-            map.addLayer(markers);
+            var markers; // = new OpenLayers.Layer.Markers("Културно-исторически обекти");
+            var size = new OpenLayers.Size(21, 25);
+            var offset = new OpenLayers.Pixel(-(size.w / 2), -size.h);
+            //map.addLayer(markers);
             var site = new Object();
             var objects = new Array ("GridViewSiteObjects", "GridViewEventObjects", "GridViewDocObjects");
 
