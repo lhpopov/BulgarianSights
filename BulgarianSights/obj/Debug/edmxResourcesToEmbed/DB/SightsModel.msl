@@ -12,7 +12,6 @@
           <ScalarProperty Name="age" ColumnName="age" />
           <ScalarProperty Name="importance" ColumnName="importance" />
           <ScalarProperty Name="culture" ColumnName="culture" />
-          <ScalarProperty Name="eventId" ColumnName="eventId" />
           <ScalarProperty Name="siteX" ColumnName="siteX" />
           <ScalarProperty Name="siteY" ColumnName="siteY" />
         </MappingFragment>
@@ -32,9 +31,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Events">
-      <EntityTypeMapping TypeName="SightsDBModel.Events">
-        <MappingFragment StoreEntitySet="Events">
+    <EntitySetMapping Name="EventSite">
+      <EntityTypeMapping TypeName="SightsDBModel.EventSite">
+        <MappingFragment StoreEntitySet="EventSite">
           <ScalarProperty Name="idEvent" ColumnName="idEvent" />
           <ScalarProperty Name="event" ColumnName="event" />
           <ScalarProperty Name="eventName" ColumnName="eventName" />

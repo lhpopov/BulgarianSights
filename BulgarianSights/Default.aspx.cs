@@ -28,7 +28,7 @@ namespace BulgarianSights
 
         protected void bla_Click(object sender, EventArgs e)
         {
-            
+            addSite.Style["display"] = "block";
 
 
         }

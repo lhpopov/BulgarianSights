@@ -55,7 +55,7 @@ function init() {
     map.addLayers([gmap, gphy, ghyb, gsat]);
     //map.addLayers([ghyb]);
 
-    map.addControl(new OpenLayers.Control.MousePosition({ div: document.getElementById("LabelCoords"), numDigits: 2, prefix: "X: ", separator: "  Y: " }));
+    map.addControl(new OpenLayers.Control.MousePosition({ div: document.getElementById("LabelCoords"), numDigits: 2, prefix: "", separator: "," }));
 
     /* Взима координатите на мишката върху екрана на клиента */
     //    map.events.register("mousemove", map, function (e) {

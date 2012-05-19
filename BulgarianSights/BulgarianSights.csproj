@@ -60,13 +60,14 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="AddSiteControl.ascx" />
     <Content Include="App_Data\SightsDB.mdf" />
     <Content Include="App_Data\SightsDB_log.ldf">
       <DependentUpon>SightsDB.mdf</DependentUpon>
     </Content>
     <Content Include="Articles.aspx" />
-    <Content Include="CoursesAdd.aspx" />
     <Content Include="Images\buttons\pan.png" />
+    <Content Include="Images\doc.png" />
     <Content Include="Images\green_pin.png" />
     <Content Include="Map.aspx" />
     <Content Include="scripts\google-v3.js" />
@@ -2074,6 +2075,7 @@
     <Content Include="scripts\openlayers\tools\README.txt" />
     <Content Include="scripts\openlayers\tools\shrinksafe.py" />
     <Content Include="scripts\openlayers\tools\toposort.py" />
+    <Content Include="SitesAdd.aspx" />
     <Content Include="Styles\MapStyle.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -2123,16 +2125,19 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddSiteControl.ascx.cs">
+      <DependentUpon>AddSiteControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddSiteControl.ascx.designer.cs">
+      <DependentUpon>AddSiteControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Articles.aspx.cs">
       <DependentUpon>Articles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Articles.aspx.designer.cs">
       <DependentUpon>Articles.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CoursesAdd.aspx.cs">
-      <DependentUpon>CoursesAdd.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DB\DatabaseManager.cs" />
     <Compile Include="DB\SightsModel.Designer.cs">
@@ -2166,7 +2171,18 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <EntityDeploy Include="DB\SightsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SightsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="TestCode.cs_" />
+    <Compile Include="SitesAdd.aspx.cs">
+      <DependentUpon>SitesAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitesAdd.aspx.designer.cs">
+      <DependentUpon>SitesAdd.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TestCode.cs.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -2180,10 +2196,6 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="DB\SightsModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SightsModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="scripts\openlayers\apidoc_config\Data\ClassHierarchy.nd" />
     <None Include="scripts\openlayers\apidoc_config\Data\ConfigFileInfo.nd" />
     <None Include="scripts\openlayers\apidoc_config\Data\FileInfo.nd" />

@@ -22,15 +22,6 @@ namespace BulgarianSights {
         protected global::System.Web.UI.WebControls.TextBox Textbox1;
         
         /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-        
-        /// <summary>
         /// UpdatePanelMap control.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,24 @@ namespace BulgarianSights {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanelMap;
+        
+        /// <summary>
+        /// addSite control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl addSite;
+        
+        /// <summary>
+        /// AddSiteControl1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::BulgarianSights.AddSiteControl AddSiteControl1;
         
         /// <summary>
         /// GridView1 control.

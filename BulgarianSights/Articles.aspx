@@ -33,8 +33,6 @@
                 SortExpression="importance" />
             <asp:BoundField DataField="culture" HeaderText="culture" 
                 SortExpression="culture" />
-            <asp:BoundField DataField="eventId" HeaderText="eventId" 
-                SortExpression="eventId" />
             <asp:BoundField DataField="siteX" HeaderText="siteX" 
                 SortExpression="siteX" />
             <asp:BoundField DataField="siteY" HeaderText="siteY" 

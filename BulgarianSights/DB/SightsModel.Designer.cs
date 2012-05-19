@@ -16,11 +16,6 @@ using System.Xml.Serialization;
 using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
-#region EDM Relationship Metadata
-
-[assembly: EdmRelationshipAttribute("SightsDBModel", "FK_Events_CulturalAndHistoricSites", "CulturalAndHistoricSites", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BulgarianSights.DB.CulturalAndHistoricSites), "Events", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BulgarianSights.DB.Events), true)]
-
-#endregion
 
 namespace BulgarianSights.DB
 {
@@ -105,18 +100,18 @@ namespace BulgarianSights.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Events> Events
+        public ObjectSet<EventSite> EventSite
         {
             get
             {
-                if ((_Events == null))
+                if ((_EventSite == null))
                 {
-                    _Events = base.CreateObjectSet<Events>("Events");
+                    _EventSite = base.CreateObjectSet<EventSite>("EventSite");
                 }
-                return _Events;
+                return _EventSite;
             }
         }
-        private ObjectSet<Events> _Events;
+        private ObjectSet<EventSite> _EventSite;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -154,11 +149,11 @@ namespace BulgarianSights.DB
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Events EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the EventSite EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToEvents(Events events)
+        public void AddToEventSite(EventSite eventSite)
         {
-            base.AddObject("Events", events);
+            base.AddObject("EventSite", eventSite);
         }
     
         /// <summary>
@@ -405,30 +400,6 @@ namespace BulgarianSights.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> eventId
-        {
-            get
-            {
-                return _eventId;
-            }
-            set
-            {
-                OneventIdChanging(value);
-                ReportPropertyChanging("eventId");
-                _eventId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("eventId");
-                OneventIdChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _eventId;
-        partial void OneventIdChanging(Nullable<global::System.Int32> value);
-        partial void OneventIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String siteX
@@ -476,47 +447,6 @@ namespace BulgarianSights.DB
 
         #endregion
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SightsDBModel", "FK_Events_CulturalAndHistoricSites", "Events")]
-        public Events Events
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Events>("SightsDBModel.FK_Events_CulturalAndHistoricSites", "Events").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Events>("SightsDBModel.FK_Events_CulturalAndHistoricSites", "Events").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Events> EventsReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Events>("SightsDBModel.FK_Events_CulturalAndHistoricSites", "Events");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Events>("SightsDBModel.FK_Events_CulturalAndHistoricSites", "Events", value);
-                }
-            }
-        }
-
-        #endregion
     }
     
     /// <summary>
@@ -749,28 +679,26 @@ namespace BulgarianSights.DB
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="SightsDBModel", Name="Events")]
+    [EdmEntityTypeAttribute(NamespaceName="SightsDBModel", Name="EventSite")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Events : EntityObject
+    public partial class EventSite : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Events object.
+        /// Create a new EventSite object.
         /// </summary>
         /// <param name="idEvent">Initial value of the idEvent property.</param>
         /// <param name="event">Initial value of the event property.</param>
         /// <param name="eventName">Initial value of the eventName property.</param>
-        /// <param name="culturalAndHistoricSitesId">Initial value of the CulturalAndHistoricSitesId property.</param>
-        public static Events CreateEvents(global::System.Int32 idEvent, global::System.String @event, global::System.String eventName, global::System.Int32 culturalAndHistoricSitesId)
+        public static EventSite CreateEventSite(global::System.Int32 idEvent, global::System.String @event, global::System.String eventName)
         {
-            Events events = new Events();
-            events.idEvent = idEvent;
-            events.@event = @event;
-            events.eventName = eventName;
-            events.CulturalAndHistoricSitesId = culturalAndHistoricSitesId;
-            return events;
+            EventSite eventSite = new EventSite();
+            eventSite.idEvent = idEvent;
+            eventSite.@event = @event;
+            eventSite.eventName = eventName;
+            return eventSite;
         }
 
         #endregion
@@ -950,9 +878,9 @@ namespace BulgarianSights.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 CulturalAndHistoricSitesId
+        public Nullable<global::System.Int32> CulturalAndHistoricSitesId
         {
             get
             {
@@ -967,53 +895,12 @@ namespace BulgarianSights.DB
                 OnCulturalAndHistoricSitesIdChanged();
             }
         }
-        private global::System.Int32 _CulturalAndHistoricSitesId;
-        partial void OnCulturalAndHistoricSitesIdChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _CulturalAndHistoricSitesId;
+        partial void OnCulturalAndHistoricSitesIdChanging(Nullable<global::System.Int32> value);
         partial void OnCulturalAndHistoricSitesIdChanged();
 
         #endregion
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SightsDBModel", "FK_Events_CulturalAndHistoricSites", "CulturalAndHistoricSites")]
-        public CulturalAndHistoricSites CulturalAndHistoricSites
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CulturalAndHistoricSites>("SightsDBModel.FK_Events_CulturalAndHistoricSites", "CulturalAndHistoricSites").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CulturalAndHistoricSites>("SightsDBModel.FK_Events_CulturalAndHistoricSites", "CulturalAndHistoricSites").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<CulturalAndHistoricSites> CulturalAndHistoricSitesReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CulturalAndHistoricSites>("SightsDBModel.FK_Events_CulturalAndHistoricSites", "CulturalAndHistoricSites");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CulturalAndHistoricSites>("SightsDBModel.FK_Events_CulturalAndHistoricSites", "CulturalAndHistoricSites", value);
-                }
-            }
-        }
-
-        #endregion
     }
     
     /// <summary>

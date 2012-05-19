@@ -8,12 +8,8 @@
         <EntityContainer Name="SightsDBModelStoreContainer">
           <EntitySet Name="CulturalAndHistoricSites" EntityType="SightsDBModel.Store.CulturalAndHistoricSites" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Documents" EntityType="SightsDBModel.Store.Documents" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Events" EntityType="SightsDBModel.Store.Events" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EventSite" EntityType="SightsDBModel.Store.EventSite" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sysdiagrams" EntityType="SightsDBModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_Events_CulturalAndHistoricSites" Association="SightsDBModel.Store.FK_Events_CulturalAndHistoricSites">
-            <End Role="CulturalAndHistoricSites" EntitySet="CulturalAndHistoricSites" />
-            <End Role="Events" EntitySet="Events" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="CulturalAndHistoricSites">
           <Key>
@@ -27,7 +23,6 @@
           <Property Name="age" Type="varchar" MaxLength="100" />
           <Property Name="importance" Type="varchar" MaxLength="100" />
           <Property Name="culture" Type="varchar" MaxLength="100" />
-          <Property Name="eventId" Type="int" />
           <Property Name="siteX" Type="varchar" Nullable="false" MaxLength="10" />
           <Property Name="siteY" Type="varchar" Nullable="false" MaxLength="10" />
         </EntityType>
@@ -44,7 +39,7 @@
           <Property Name="importance" Type="varchar" MaxLength="100" />
           <Property Name="culture" Type="varchar" MaxLength="100" />
         </EntityType>
-        <EntityType Name="Events">
+        <EntityType Name="EventSite">
           <Key>
             <PropertyRef Name="idEvent" />
           </Key>
@@ -55,7 +50,7 @@
           <Property Name="location" Type="varchar" MaxLength="100" />
           <Property Name="age" Type="varchar" MaxLength="100" />
           <Property Name="date" Type="varchar" MaxLength="10" />
-          <Property Name="CulturalAndHistoricSitesId" Type="int" Nullable="false" />
+          <Property Name="CulturalAndHistoricSitesId" Type="int" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -67,18 +62,6 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK_Events_CulturalAndHistoricSites">
-          <End Role="CulturalAndHistoricSites" Type="SightsDBModel.Store.CulturalAndHistoricSites" Multiplicity="1" />
-          <End Role="Events" Type="SightsDBModel.Store.Events" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="CulturalAndHistoricSites">
-              <PropertyRef Name="idSite" />
-            </Principal>
-            <Dependent Role="Events">
-              <PropertyRef Name="idEvent" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
@@ -87,12 +70,8 @@
         <EntityContainer Name="SightsDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CulturalAndHistoricSites" EntityType="SightsDBModel.CulturalAndHistoricSites" />
           <EntitySet Name="Documents" EntityType="SightsDBModel.Documents" />
-          <EntitySet Name="Events" EntityType="SightsDBModel.Events" />
+          <EntitySet Name="EventSite" EntityType="SightsDBModel.EventSite" />
           <EntitySet Name="sysdiagrams" EntityType="SightsDBModel.sysdiagrams" />
-          <AssociationSet Name="FK_Events_CulturalAndHistoricSites" Association="SightsDBModel.FK_Events_CulturalAndHistoricSites">
-            <End Role="CulturalAndHistoricSites" EntitySet="CulturalAndHistoricSites" />
-            <End Role="Events" EntitySet="Events" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="CulturalAndHistoricSites">
           <Key>
@@ -106,10 +85,8 @@
           <Property Name="age" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="importance" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="culture" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="eventId" Type="Int32" />
           <Property Name="siteX" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
           <Property Name="siteY" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="Events" Relationship="SightsDBModel.FK_Events_CulturalAndHistoricSites" FromRole="CulturalAndHistoricSites" ToRole="Events" />
         </EntityType>
         <EntityType Name="Documents">
           <Key>
@@ -124,7 +101,7 @@
           <Property Name="importance" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="culture" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
         </EntityType>
-        <EntityType Name="Events">
+        <EntityType Name="EventSite">
           <Key>
             <PropertyRef Name="idEvent" />
           </Key>
@@ -135,8 +112,7 @@
           <Property Name="location" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="age" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="date" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="CulturalAndHistoricSitesId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CulturalAndHistoricSites" Relationship="SightsDBModel.FK_Events_CulturalAndHistoricSites" FromRole="Events" ToRole="CulturalAndHistoricSites" />
+          <Property Name="CulturalAndHistoricSitesId" Type="Int32" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -148,18 +124,6 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <Association Name="FK_Events_CulturalAndHistoricSites">
-          <End Role="CulturalAndHistoricSites" Type="SightsDBModel.CulturalAndHistoricSites" Multiplicity="1" />
-          <End Role="Events" Type="SightsDBModel.Events" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="CulturalAndHistoricSites">
-              <PropertyRef Name="idSite" />
-            </Principal>
-            <Dependent Role="Events">
-              <PropertyRef Name="idEvent" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -175,7 +139,6 @@
             <ScalarProperty Name="age" ColumnName="age" />
             <ScalarProperty Name="importance" ColumnName="importance" />
             <ScalarProperty Name="culture" ColumnName="culture" />
-            <ScalarProperty Name="eventId" ColumnName="eventId" />
             <ScalarProperty Name="siteX" ColumnName="siteX" />
             <ScalarProperty Name="siteY" ColumnName="siteY" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
@@ -189,7 +152,7 @@
             <ScalarProperty Name="importance" ColumnName="importance" />
             <ScalarProperty Name="culture" ColumnName="culture" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Events"><EntityTypeMapping TypeName="SightsDBModel.Events"><MappingFragment StoreEntitySet="Events">
+          <EntitySetMapping Name="EventSite"><EntityTypeMapping TypeName="SightsDBModel.EventSite"><MappingFragment StoreEntitySet="EventSite">
             <ScalarProperty Name="idEvent" ColumnName="idEvent" />
             <ScalarProperty Name="event" ColumnName="event" />
             <ScalarProperty Name="eventName" ColumnName="eventName" />
@@ -227,14 +190,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="SightsModel">
-        <EntityTypeShape EntityType="SightsDBModel.CulturalAndHistoricSites" Width="1.5" PointX="0.75" PointY="1" Height="3.3263964843749996" IsExpanded="true" />
-        <EntityTypeShape EntityType="SightsDBModel.Documents" Width="1.5" PointX="5.75" PointY="0.75" Height="2.5571907552083326" IsExpanded="true" />
-        <EntityTypeShape EntityType="SightsDBModel.Events" Width="1.5" PointX="3" PointY="1.25" Height="2.7494921874999996" IsExpanded="true" />
-        <EntityTypeShape EntityType="SightsDBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="5.75" Height="1.9802864583333335" IsExpanded="true" />
-        <AssociationConnector Association="SightsDBModel.FK_Events_CulturalAndHistoricSites" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="2.62474609375" />
-          <ConnectorPoint PointX="3" PointY="2.62474609375" />
-        </AssociationConnector>
+        <EntityTypeShape EntityType="SightsDBModel.CulturalAndHistoricSites" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9417936197916665" IsExpanded="true" />
+        <EntityTypeShape EntityType="SightsDBModel.Documents" Width="1.5" PointX="2.75" PointY="0.75" Height="2.5571907552083326" IsExpanded="true" />
+        <EntityTypeShape EntityType="SightsDBModel.EventSite" Width="1.5" PointX="4.75" PointY="0.75" Height="2.5571907552083335" IsExpanded="true" />
+        <EntityTypeShape EntityType="SightsDBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" Height="1.9802864583333335" IsExpanded="true" />
       </Diagram>
     </Diagrams>
   </Designer>

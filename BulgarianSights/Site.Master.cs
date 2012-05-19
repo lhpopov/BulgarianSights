@@ -13,5 +13,10 @@ namespace BulgarianSights
         protected void Page_Load(object sender, EventArgs e)
         {
         }
+
+        protected void bla_click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="Забележителностите на България." Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
     CodeBehind="Default.aspx.cs" Inherits="BulgarianSights._Default" %>
 
+
+
+<%@ Register src="AddSiteControl.ascx" tagname="AddSiteControl" tagprefix="uc1" %>
+
+
+
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">  
     <link href="scripts/openlayers/theme/default/style.css" rel="stylesheet" type="text/css" />
     <link href="Styles/MapStyle.css" rel="stylesheet" type="text/css" />
@@ -40,7 +46,7 @@
         function ShowObjectsOnLoadMap(icon, marker) {
             var layerNames = new Array("Културно-исторически обекти", "Събития", "Документи")
             var markers; // = new OpenLayers.Layer.Markers("Културно-исторически обекти");
-            var size = new OpenLayers.Size(21, 25);
+            var size = new OpenLayers.Size(32, 32);
             var offset = new OpenLayers.Pixel(-(size.w / 2), -size.h);
             //map.addLayer(markers);
             var site = new Object();
@@ -57,8 +63,8 @@
                     //for (j in grid.rows[i].cells) {
                     if (i == 0)
                         continue;
-                    site.x = grid.rows[i].cells[9].innerHTML;
-                    site.y = grid.rows[i].cells[10].innerHTML;
+                    site.x = grid.rows[i].cells[8].innerHTML;
+                    site.y = grid.rows[i].cells[9].innerHTML;
 
                     var objectName = grid.rows[i].cells[2].innerHTML;
                     var zoomLevel = 7;
@@ -66,7 +72,7 @@
                     var icon;
                     //addMarkerToMap(site.x, sitey, objectName);
                      if(objects[layer] == "GridViewSiteObjects")
-                     icon = new OpenLayers.Icon('images/green_pin.png', size, offset);
+                     icon = new OpenLayers.Icon('images/doc.png', size, offset);
                             else if(objects[layer] == "GridViewEventObjects")
                      icon = new OpenLayers.Icon('images/buttons/pan.png', size, offset);
                             else 
@@ -93,12 +99,21 @@
 <asp:TextBox ID="Textbox1" runat="server">
     
     </asp:TextBox>
-    <asp:Button ID="Button1" runat="server" Text="Button" OnClick="bla_Click" />
+
+    <script type="text/ecmascript">
+        function getCoordsClick() {
+            var coords = $('#LabelCoords').html();
+            coords.split(',');
+            $('#siteX').text(coords[0]);
+            $('#siteY').text(coords[1]);
+        }
+    </script>
 
 
-
-<asp:UpdatePanel ID="UpdatePanelMap" runat="server" UpdateMode="Conditional">
+<asp:UpdatePanel ID="UpdatePanelMap" runat="server" UpdateMode="Always">
     <ContentTemplate>
+        <%--<asp:Button ID="Button1" runat="server" Text="Button" OnClick="bla_Click" />--%>
+        <input type="button" id="Button1" value="Button" OnClick="$('#addSite').css('display', 'block');" />
     <h1>
     
     map div
@@ -107,8 +122,19 @@
     ratio: 1,5
     </h1>
 
-    <div id="map" style="width: 1000px; border: solid 1px red; height: 661px; color: white"> 
+    <div id="map" style="width: 800px; border: solid 1px red; height: 529px; color: white"
+    onclick="getCoordsClick()"
+    > 
     
+    </div>
+
+    <div id="addSite" runat="server" clientidmode="Static" style="border: solid 1px red; width: 400px; height: 600px; background: yellow;
+        position: absolute; top: 185px; left: 850px;
+        display: block;
+        ">
+
+        <uc1:AddSiteControl ID="AddSiteControl1" runat="server" ClientIDMode="Static"/>
+
     </div>
     <div id="LabelCoords" style="width: 200px; height: 30px; background: blue; color: white;">
     </div>
@@ -138,8 +164,6 @@
                     SortExpression="importance" />
                 <asp:BoundField DataField="culture" HeaderText="culture" 
                     SortExpression="culture" />
-                <asp:BoundField DataField="eventId" HeaderText="eventId" 
-                    SortExpression="eventId" />
                 <asp:BoundField DataField="siteX" HeaderText="siteX" 
                     SortExpression="siteX" />
                 <asp:BoundField DataField="siteY"   HeaderText="siteY"
