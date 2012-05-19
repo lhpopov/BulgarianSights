@@ -45,11 +45,9 @@
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
                         <asp:MenuItem NavigateUrl="~/Articles.aspx" Text="Обекти"/>
                         <asp:MenuItem NavigateUrl="~/SitesAdd.aspx" Text="Добави Обект" />
-
-                        
                     </Items>
                 </asp:Menu>
-                <asp:Button id="бла" runat="server" OnClick="bla_click" Text="Покажи формата брат!"/>
+                
             </div>
         </div>
         <div class="main">

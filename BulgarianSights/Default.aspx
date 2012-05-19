@@ -96,24 +96,30 @@
 
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-<asp:TextBox ID="Textbox1" runat="server">
-    
-    </asp:TextBox>
-
     <script type="text/ecmascript">
         function getCoordsClick() {
             var coords = $('#LabelCoords').html();
-            coords.split(',');
-            $('#siteX').text(coords[0]);
-            $('#siteY').text(coords[1]);
+            coords = coords.split(',');
+            $('#siteX').val(coords[0]);
+            $('#siteY').val(coords[1]);
+        }
+
+        function showAddForm() {
+            $('#addSite').css('display', 'block');
         }
     </script>
 
 
 <asp:UpdatePanel ID="UpdatePanelMap" runat="server" UpdateMode="Always">
     <ContentTemplate>
-        <%--<asp:Button ID="Button1" runat="server" Text="Button" OnClick="bla_Click" />--%>
-        <input type="button" id="Button1" value="Button" OnClick="$('#addSite').css('display', 'block');" />
+    
+
+    <div id="map" style="width: 800px; border: solid 1px red; height: 529px; color: white"
+    onclick="getCoordsClick()"
+    > 
+    
+    </div>
+
     <h1>
     
     map div
@@ -122,14 +128,12 @@
     ratio: 1,5
     </h1>
 
-    <div id="map" style="width: 800px; border: solid 1px red; height: 529px; color: white"
-    onclick="getCoordsClick()"
-    > 
-    
-    </div>
-
-    <div id="addSite" runat="server" clientidmode="Static" style="border: solid 1px red; width: 400px; height: 600px; background: yellow;
-        position: absolute; top: 185px; left: 850px;
+    <div id="addSite" runat="server" clientidmode="Static" style="border: solid 1px red; width: 400px; height: 529px; 
+        text-align: center;
+        
+        background: #3A4F63;
+        color: White;
+        position: absolute; top: 120px; left: 850px;
         display: block;
         ">
 

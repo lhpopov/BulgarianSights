@@ -3,11 +3,11 @@
 
 <asp:UpdatePanel ID="AddSiteUpdatePanel" runat="server" UpdateMode="Always">
 <ContentTemplate>
-<div id="AddSiteControlWrapper" runat="server" clientidmode="Static">
-<h2>
-        Add Site</h2>
+<div id="AddSiteControlWrapper" runat="server" clientidmode="Static" style="margin: auto auto;">
+<h2 style="color: White; font-family: verdana">
+        Добавете обект </h2>
     <table>
-        <th width="200"></th>
+        <th width="150"></th>
         <th width="180"></th>
         <tr>
             <td>
@@ -86,18 +86,18 @@
         </tr>
         <tr>
             <td>
-                X
+                Географска дължина
             </td>
             <td>
-                <asp:TextBox ID="siteX" runat="server" ToolTip="Географска дължина" ClientIDMode="Static"/>
+                <asp:TextBox ID="siteX" runat="server" ToolTip="Натиснете върху картата, за да вземете координати на дадена точка." ClientIDMode="Static" Enabled="false"/>
             </td>
         </tr>
         <tr>
             <td>
-                Y
+                Географска ширина
             </td>
             <td>
-                <asp:TextBox ID="siteY" runat="server" ToolTip="Географска ширина" ClientIDMode="Static"/>
+                <asp:TextBox ID="siteY" runat="server" ToolTip="Натиснете върху картата, за да вземете координати на дадена точка." ClientIDMode="Static" Enabled="false"/>
             </td>
         </tr>
     </table>
