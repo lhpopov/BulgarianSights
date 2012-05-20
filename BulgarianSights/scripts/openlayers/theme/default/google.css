@@ -6,6 +6,7 @@
 .olLayerGoogleV3.olLayerGoogleCopyright {
     bottom: 0px;
     right: 0px !important;
+    display: none;
 }
 .olLayerGooglePoweredBy {
     left: 2px;

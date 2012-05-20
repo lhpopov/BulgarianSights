@@ -508,7 +508,7 @@ OpenLayers.Layer.Google.v2 = {
             var container = this.map.viewPortDiv;
             var div = document.createElement("div");
             div.id = this.map.id + "_GMap2Container";
-            div.style.position = "absolute";
+            div.style.position = "absolute"; poweredBy
             div.style.width = "100%";
             div.style.height = "100%";
             container.appendChild(div);
@@ -520,14 +520,14 @@ OpenLayers.Layer.Google.v2 = {
                 // move the ToS and branding stuff up to the container div
                 termsOfUse = div.lastChild;
                 container.appendChild(termsOfUse);
-                termsOfUse.style.zIndex = "1100";
+                termsOfUse.style.zIndex = "-50";
                 termsOfUse.style.right = "";
                 termsOfUse.style.bottom = "";
                 termsOfUse.className = "olLayerGoogleCopyright";
 
                 poweredBy = div.lastChild;
                 container.appendChild(poweredBy);
-                poweredBy.style.zIndex = "1100";
+                poweredBy.style.zIndex = "-50";
                 poweredBy.style.right = "";
                 poweredBy.style.bottom = "";
                 poweredBy.className = "olLayerGooglePoweredBy gmnoprint";

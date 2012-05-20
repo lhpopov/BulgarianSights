@@ -16,7 +16,6 @@ function init() {
         //maxExtent: new OpenLayers.Bounds(10.2, 48.9),
         //scales: [200000, 100000, 50000, 20000, 10000, 5000, 2500, 1000, 500],
         //projection: "EPSG:900913",
-        projection: "EPSG:4326",
         numZoomLevels: 18,
         controls: [
                         new OpenLayers.Control.Navigation(),
@@ -87,7 +86,6 @@ function init() {
     var offset = new OpenLayers.Pixel(-(size.w / 2), -size.h);
     var icon = new OpenLayers.Icon('http://www.openlayers.org/dev/img/marker.png', size, offset);
     markers.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(2810458.86, 5258913.45), icon));
-
 
     ShowObjectsOnLoadMap();
 

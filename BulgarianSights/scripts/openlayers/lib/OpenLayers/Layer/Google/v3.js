@@ -1,6 +1,6 @@
-/* Copyright (c) 2006-2011 by OpenLayers Contributors (see authors.txt for 
- * full list of contributors). Published under the Clear BSD license.  
- * See http://svn.openlayers.org/trunk/openlayers/license.txt for the
+/* Copyright (c) 2006-2012 by OpenLayers Contributors (see authors.txt for 
+ * full list of contributors). Published under the 2-clause BSD license.
+ * See license.txt in the OpenLayers distribution or repository for the
  * full text of the license. */
 
 
@@ -11,10 +11,15 @@
 /**
  * Constant: OpenLayers.Layer.Google.v3
  * 
- * Mixin providing functionality specific to the Google Maps API v3. Note that
- * this layer configures the google.maps.map object with the "disableDefaultUI"
- * option set to true. Using UI controls that the Google Maps API provides is
- * not supported by the OpenLayers API.
+ * Mixin providing functionality specific to the Google Maps API v3 <= v3.6.
+ * Note that this layer configures the google.maps.map object with the
+ * "disableDefaultUI" option set to true. Using UI controls that the Google
+ * Maps API provides is not supported by the OpenLayers API. To use this layer,
+ * you must include the GMaps API (<= v3.6) in your html:
+ *
+ * (code)
+ * <script src="http://maps.google.com/maps/api/js?v=3.6&amp;sensor=false"></script>
+ * (end)
  */
 OpenLayers.Layer.Google.v3 = {
     
@@ -25,29 +30,13 @@ OpenLayers.Layer.Google.v3 = {
      * 
      * (code)
      * {
-     *     maxExtent: new OpenLayers.Bounds(
-     *         -128 * 156543.03390625,
-     *         -128 * 156543.03390625,
-     *         128 * 156543.03390625,
-     *         128 * 156543.03390625
-     *     ),
      *     sphericalMercator: true,
-     *     maxResolution: 156543.03390625,
-     *     units: "m",
      *     projection: "EPSG:900913"
      * }
      * (end)
      */
     DEFAULTS: {
-        maxExtent: new OpenLayers.Bounds(
-            -128 * 156543.03390625,
-            -128 * 156543.03390625,
-            128 * 156543.03390625,
-            128 * 156543.03390625
-        ),
         sphericalMercator: true,
-        maxResolution: 156543.03390625,
-        units: "m",
         projection: "EPSG:900913"
     },
 
@@ -148,27 +137,31 @@ OpenLayers.Layer.Google.v3 = {
         var cache = OpenLayers.Layer.Google.cache[this.map.id];
         var container = this.map.viewPortDiv;
         
-        // move the Map Data popup to the container, if any
-        while (div.lastChild.style.display == "none") {
-            container.appendChild(div.lastChild);
-        }
-
         // move the ToS and branding stuff up to the container div
-        var termsOfUse = div.lastChild;
-        container.appendChild(termsOfUse);
-        termsOfUse.style.zIndex = "1100";
-        termsOfUse.style.bottom = "";
-        termsOfUse.className = "olLayerGoogleCopyright olLayerGoogleV3";
-        termsOfUse.style.display = "";
-        cache.termsOfUse = termsOfUse;
-
-        var poweredBy = div.lastChild;
-        container.appendChild(poweredBy);
-        poweredBy.style.zIndex = "1100";
-        poweredBy.style.bottom = "";
-        poweredBy.className = "olLayerGooglePoweredBy olLayerGoogleV3 gmnoprint";
-        poweredBy.style.display = "";
-        cache.poweredBy = poweredBy;
+        // depends on value of zIndex, which is not robust
+        for (var i=div.children.length-1; i>=0; --i) {
+            if (div.children[i].style.zIndex == 1000001) {
+                var termsOfUse = div.children[i];
+                container.appendChild(termsOfUse);
+                termsOfUse.style.zIndex = "1100";
+                termsOfUse.style.bottom = "";
+                termsOfUse.className = "olLayerGoogleCopyright olLayerGoogleV3";
+                termsOfUse.style.display = "";
+                cache.termsOfUse = termsOfUse;
+            }
+            if (div.children[i].style.zIndex == 1000000) {
+                var poweredBy = div.children[i];
+                container.appendChild(poweredBy);
+                poweredBy.style.zIndex = "1100";
+                poweredBy.style.bottom = "";
+                poweredBy.className = "olLayerGooglePoweredBy olLayerGoogleV3 gmnoprint";
+                poweredBy.style.display = "";
+                cache.poweredBy = poweredBy;
+            }
+            if (div.children[i].style.zIndex == 10000002) {
+                container.appendChild(div.children[i]);
+            }
+        }
 
         this.setGMapVisibility(this.visibility);
 
@@ -337,11 +330,8 @@ OpenLayers.Layer.Google.v3 = {
         var lat = this.getLatitudeFromMapObjectLonLat(moLonLat);
         var res = this.map.getResolution();
         var extent = this.map.getExtent();
-        var px = new OpenLayers.Pixel(
-            (1/res * (lon - extent.left)),
-            (1/res * (extent.top - lat))
-        );    
-        return this.getMapObjectPixelFromXY(px.x, px.y);
+        return this.getMapObjectPixelFromXY((1/res * (lon - extent.left)),
+                                            (1/res * (extent.top - lat)));
     },
 
   
