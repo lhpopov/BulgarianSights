@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SightsDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+      <Schema Namespace="SightsDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="SightsDBModelStoreContainer">
           <EntitySet Name="CulturalAndHistoricSites" EntityType="SightsDBModel.Store.CulturalAndHistoricSites" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Documents" EntityType="SightsDBModel.Store.Documents" store:Type="Tables" Schema="dbo" />
@@ -66,7 +66,8 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SightsDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -81,6 +82,7 @@
             <PropertyRef Name="idSite" />
           </Key>
           <Property Name="idSite" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="siteText" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="siteName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="area" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="location" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
@@ -89,7 +91,6 @@
           <Property Name="culture" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="siteX" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
           <Property Name="siteY" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Type="String" Name="siteText" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Documents">
           <Key>
@@ -103,23 +104,23 @@
           <Property Name="age" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="importance" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="culture" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Type="String" Name="docX" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="docY" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="docX" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="docY" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
         </EntityType>
         <EntityType Name="EventSite">
           <Key>
             <PropertyRef Name="idEvent" />
           </Key>
-          <Property Name="idEvent" Type="Int32" Nullable="false" />
+          <Property Name="idEvent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="eventText" Type="String" Nullable="false" MaxLength="1000" Unicode="false" FixedLength="false" />
           <Property Name="eventName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="area" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="location" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="age" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="date" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
           <Property Name="CulturalAndHistoricSitesId" Type="Int32" />
-          <Property Type="String" Name="eventText" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="eventX" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="eventY" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="eventX" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="eventY" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -138,8 +139,8 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SightsDBModelStoreContainer" CdmEntityContainer="SightsDBEntities">
           <EntitySetMapping Name="CulturalAndHistoricSites"><EntityTypeMapping TypeName="SightsDBModel.CulturalAndHistoricSites"><MappingFragment StoreEntitySet="CulturalAndHistoricSites">
+            <ScalarProperty Name="idSite" ColumnName="idSite" />
             <ScalarProperty Name="siteText" ColumnName="siteText" />
-                <ScalarProperty Name="idSite" ColumnName="idSite" />
             <ScalarProperty Name="siteName" ColumnName="siteName" />
             <ScalarProperty Name="area" ColumnName="area" />
             <ScalarProperty Name="location" ColumnName="location" />
@@ -150,9 +151,7 @@
             <ScalarProperty Name="siteY" ColumnName="siteY" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Documents"><EntityTypeMapping TypeName="SightsDBModel.Documents"><MappingFragment StoreEntitySet="Documents">
-            <ScalarProperty Name="docY" ColumnName="docY" />
-                <ScalarProperty Name="docX" ColumnName="docX" />
-                <ScalarProperty Name="idDocument" ColumnName="idDocument" />
+            <ScalarProperty Name="idDocument" ColumnName="idDocument" />
             <ScalarProperty Name="documentText" ColumnName="documentText" />
             <ScalarProperty Name="documentName" ColumnName="documentName" />
             <ScalarProperty Name="area" ColumnName="area" />
@@ -160,18 +159,20 @@
             <ScalarProperty Name="age" ColumnName="age" />
             <ScalarProperty Name="importance" ColumnName="importance" />
             <ScalarProperty Name="culture" ColumnName="culture" />
+            <ScalarProperty Name="docX" ColumnName="docX" />
+            <ScalarProperty Name="docY" ColumnName="docY" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="EventSite"><EntityTypeMapping TypeName="SightsDBModel.EventSite"><MappingFragment StoreEntitySet="EventSite">
-            <ScalarProperty Name="eventY" ColumnName="eventY" />
-                <ScalarProperty Name="eventX" ColumnName="eventX" />
-                <ScalarProperty Name="eventText" ColumnName="eventText" />
-                <ScalarProperty Name="idEvent" ColumnName="idEvent" />
+            <ScalarProperty Name="idEvent" ColumnName="idEvent" />
+            <ScalarProperty Name="eventText" ColumnName="eventText" />
             <ScalarProperty Name="eventName" ColumnName="eventName" />
             <ScalarProperty Name="area" ColumnName="area" />
             <ScalarProperty Name="location" ColumnName="location" />
             <ScalarProperty Name="age" ColumnName="age" />
             <ScalarProperty Name="date" ColumnName="date" />
             <ScalarProperty Name="CulturalAndHistoricSitesId" ColumnName="CulturalAndHistoricSitesId" />
+            <ScalarProperty Name="eventX" ColumnName="eventX" />
+            <ScalarProperty Name="eventY" ColumnName="eventY" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams"><EntityTypeMapping TypeName="SightsDBModel.sysdiagrams"><MappingFragment StoreEntitySet="sysdiagrams">
             <ScalarProperty Name="name" ColumnName="name" />
@@ -202,8 +203,8 @@
     <Diagrams>
       <Diagram Name="SightsModel">
         <EntityTypeShape EntityType="SightsDBModel.CulturalAndHistoricSites" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9417936197916665" IsExpanded="true" />
-        <EntityTypeShape EntityType="SightsDBModel.Documents" Width="1.5" PointX="2.75" PointY="0.75" Height="2.5571907552083326" IsExpanded="true" />
-        <EntityTypeShape EntityType="SightsDBModel.EventSite" Width="1.5" PointX="4.75" PointY="0.75" Height="2.9417936197916665" IsExpanded="true" />
+        <EntityTypeShape EntityType="SightsDBModel.Documents" Width="1.5" PointX="2.75" PointY="0.75" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="SightsDBModel.EventSite" Width="1.5" PointX="4.75" PointY="0.75" Height="2.9417936197916656" IsExpanded="true" />
         <EntityTypeShape EntityType="SightsDBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" Height="1.9802864583333335" IsExpanded="true" />
       </Diagram>
     </Diagrams>

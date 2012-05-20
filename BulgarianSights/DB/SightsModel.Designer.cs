@@ -186,16 +186,16 @@ namespace BulgarianSights.DB
         /// Create a new CulturalAndHistoricSites object.
         /// </summary>
         /// <param name="idSite">Initial value of the idSite property.</param>
+        /// <param name="siteText">Initial value of the siteText property.</param>
         /// <param name="siteX">Initial value of the siteX property.</param>
         /// <param name="siteY">Initial value of the siteY property.</param>
-        /// <param name="siteText">Initial value of the siteText property.</param>
-        public static CulturalAndHistoricSites CreateCulturalAndHistoricSites(global::System.Int32 idSite, global::System.String siteX, global::System.String siteY, global::System.String siteText)
+        public static CulturalAndHistoricSites CreateCulturalAndHistoricSites(global::System.Int32 idSite, global::System.String siteText, global::System.String siteX, global::System.String siteY)
         {
             CulturalAndHistoricSites culturalAndHistoricSites = new CulturalAndHistoricSites();
             culturalAndHistoricSites.idSite = idSite;
+            culturalAndHistoricSites.siteText = siteText;
             culturalAndHistoricSites.siteX = siteX;
             culturalAndHistoricSites.siteY = siteY;
-            culturalAndHistoricSites.siteText = siteText;
             return culturalAndHistoricSites;
         }
 
@@ -228,6 +228,30 @@ namespace BulgarianSights.DB
         private global::System.Int32 _idSite;
         partial void OnidSiteChanging(global::System.Int32 value);
         partial void OnidSiteChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String siteText
+        {
+            get
+            {
+                return _siteText;
+            }
+            set
+            {
+                OnsiteTextChanging(value);
+                ReportPropertyChanging("siteText");
+                _siteText = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("siteText");
+                OnsiteTextChanged();
+            }
+        }
+        private global::System.String _siteText;
+        partial void OnsiteTextChanging(global::System.String value);
+        partial void OnsiteTextChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -420,30 +444,6 @@ namespace BulgarianSights.DB
         private global::System.String _siteY;
         partial void OnsiteYChanging(global::System.String value);
         partial void OnsiteYChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String siteText
-        {
-            get
-            {
-                return _siteText;
-            }
-            set
-            {
-                OnsiteTextChanging(value);
-                ReportPropertyChanging("siteText");
-                _siteText = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("siteText");
-                OnsiteTextChanged();
-            }
-        }
-        private global::System.String _siteText;
-        partial void OnsiteTextChanging(global::System.String value);
-        partial void OnsiteTextChanged();
 
         #endregion
     
@@ -742,14 +742,18 @@ namespace BulgarianSights.DB
         /// Create a new EventSite object.
         /// </summary>
         /// <param name="idEvent">Initial value of the idEvent property.</param>
-        /// <param name="eventName">Initial value of the eventName property.</param>
         /// <param name="eventText">Initial value of the eventText property.</param>
-        public static EventSite CreateEventSite(global::System.Int32 idEvent, global::System.String eventName, global::System.String eventText)
+        /// <param name="eventName">Initial value of the eventName property.</param>
+        /// <param name="eventX">Initial value of the eventX property.</param>
+        /// <param name="eventY">Initial value of the eventY property.</param>
+        public static EventSite CreateEventSite(global::System.Int32 idEvent, global::System.String eventText, global::System.String eventName, global::System.String eventX, global::System.String eventY)
         {
             EventSite eventSite = new EventSite();
             eventSite.idEvent = idEvent;
-            eventSite.eventName = eventName;
             eventSite.eventText = eventText;
+            eventSite.eventName = eventName;
+            eventSite.eventX = eventX;
+            eventSite.eventY = eventY;
             return eventSite;
         }
 
@@ -782,6 +786,30 @@ namespace BulgarianSights.DB
         private global::System.Int32 _idEvent;
         partial void OnidEventChanging(global::System.Int32 value);
         partial void OnidEventChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String eventText
+        {
+            get
+            {
+                return _eventText;
+            }
+            set
+            {
+                OneventTextChanging(value);
+                ReportPropertyChanging("eventText");
+                _eventText = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("eventText");
+                OneventTextChanged();
+            }
+        }
+        private global::System.String _eventText;
+        partial void OneventTextChanging(global::System.String value);
+        partial void OneventTextChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -932,30 +960,6 @@ namespace BulgarianSights.DB
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String eventText
-        {
-            get
-            {
-                return _eventText;
-            }
-            set
-            {
-                OneventTextChanging(value);
-                ReportPropertyChanging("eventText");
-                _eventText = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("eventText");
-                OneventTextChanged();
-            }
-        }
-        private global::System.String _eventText;
-        partial void OneventTextChanging(global::System.String value);
-        partial void OneventTextChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
         public global::System.String eventX
         {
             get
@@ -966,7 +970,7 @@ namespace BulgarianSights.DB
             {
                 OneventXChanging(value);
                 ReportPropertyChanging("eventX");
-                _eventX = StructuralObject.SetValidValue(value, true);
+                _eventX = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("eventX");
                 OneventXChanged();
             }
@@ -978,7 +982,7 @@ namespace BulgarianSights.DB
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String eventY
         {
@@ -990,7 +994,7 @@ namespace BulgarianSights.DB
             {
                 OneventYChanging(value);
                 ReportPropertyChanging("eventY");
-                _eventY = StructuralObject.SetValidValue(value, true);
+                _eventY = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("eventY");
                 OneventYChanged();
             }

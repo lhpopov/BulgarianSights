@@ -4,8 +4,8 @@
     <EntitySetMapping Name="CulturalAndHistoricSites">
       <EntityTypeMapping TypeName="SightsDBModel.CulturalAndHistoricSites">
         <MappingFragment StoreEntitySet="CulturalAndHistoricSites">
-          <ScalarProperty Name="siteText" ColumnName="siteText" />
           <ScalarProperty Name="idSite" ColumnName="idSite" />
+          <ScalarProperty Name="siteText" ColumnName="siteText" />
           <ScalarProperty Name="siteName" ColumnName="siteName" />
           <ScalarProperty Name="area" ColumnName="area" />
           <ScalarProperty Name="location" ColumnName="location" />
@@ -20,8 +20,6 @@
     <EntitySetMapping Name="Documents">
       <EntityTypeMapping TypeName="SightsDBModel.Documents">
         <MappingFragment StoreEntitySet="Documents">
-          <ScalarProperty Name="docY" ColumnName="docY" />
-          <ScalarProperty Name="docX" ColumnName="docX" />
           <ScalarProperty Name="idDocument" ColumnName="idDocument" />
           <ScalarProperty Name="documentText" ColumnName="documentText" />
           <ScalarProperty Name="documentName" ColumnName="documentName" />
@@ -30,22 +28,24 @@
           <ScalarProperty Name="age" ColumnName="age" />
           <ScalarProperty Name="importance" ColumnName="importance" />
           <ScalarProperty Name="culture" ColumnName="culture" />
+          <ScalarProperty Name="docX" ColumnName="docX" />
+          <ScalarProperty Name="docY" ColumnName="docY" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EventSite">
       <EntityTypeMapping TypeName="SightsDBModel.EventSite">
         <MappingFragment StoreEntitySet="EventSite">
-          <ScalarProperty Name="eventY" ColumnName="eventY" />
-          <ScalarProperty Name="eventX" ColumnName="eventX" />
-          <ScalarProperty Name="eventText" ColumnName="eventText" />
           <ScalarProperty Name="idEvent" ColumnName="idEvent" />
+          <ScalarProperty Name="eventText" ColumnName="eventText" />
           <ScalarProperty Name="eventName" ColumnName="eventName" />
           <ScalarProperty Name="area" ColumnName="area" />
           <ScalarProperty Name="location" ColumnName="location" />
           <ScalarProperty Name="age" ColumnName="age" />
           <ScalarProperty Name="date" ColumnName="date" />
           <ScalarProperty Name="CulturalAndHistoricSitesId" ColumnName="CulturalAndHistoricSitesId" />
+          <ScalarProperty Name="eventX" ColumnName="eventX" />
+          <ScalarProperty Name="eventY" ColumnName="eventY" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

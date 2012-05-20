@@ -65,8 +65,8 @@
                         continue;
 
                     if (objects[layer] == "GridViewSiteObjects") {
-                        cellX = 7;
-                        cellY = 8;
+                        cellX = 8;
+                        cellY = 9;
                     }
 
                     if (objects[layer] == "GridViewEventObjects") {

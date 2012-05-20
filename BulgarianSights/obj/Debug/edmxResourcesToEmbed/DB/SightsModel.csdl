@@ -11,6 +11,7 @@
       <PropertyRef Name="idSite" />
     </Key>
     <Property Name="idSite" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="siteText" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
     <Property Name="siteName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
     <Property Name="area" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
     <Property Name="location" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
@@ -19,7 +20,6 @@
     <Property Name="culture" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
     <Property Name="siteX" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
     <Property Name="siteY" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-    <Property Type="String" Name="siteText" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Documents">
     <Key>
@@ -33,23 +33,23 @@
     <Property Name="age" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
     <Property Name="importance" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
     <Property Name="culture" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Type="String" Name="docX" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="docY" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="docX" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="docY" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
   </EntityType>
   <EntityType Name="EventSite">
     <Key>
       <PropertyRef Name="idEvent" />
     </Key>
-    <Property Name="idEvent" Type="Int32" Nullable="false" />
+    <Property Name="idEvent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="eventText" Type="String" Nullable="false" MaxLength="1000" Unicode="false" FixedLength="false" />
     <Property Name="eventName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
     <Property Name="area" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
     <Property Name="location" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
     <Property Name="age" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
     <Property Name="date" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
     <Property Name="CulturalAndHistoricSitesId" Type="Int32" />
-    <Property Type="String" Name="eventText" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="eventX" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Type="String" Name="eventY" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="eventX" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="eventY" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>

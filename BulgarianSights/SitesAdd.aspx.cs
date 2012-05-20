@@ -50,12 +50,12 @@ namespace BulgarianSights
 
         protected void SaveSite_Click(object sender, EventArgs e)
         {
-            EventSite bla=  EventSite.CreateEventSite(2,"ПРоба", NameSite.Text);
-            //Documents bla = Documents.CreateDocuments(4, area.Text, NameSite.Text);
-            SightsDBEntities dbContext = new SightsDBEntities();
-            dbContext.AddObject("EventSite", bla);
-            dbContext.AddToEventSite(bla);
-            dbContext.SaveChanges();
+            //EventSite bla=  EventSite.CreateEventSite(2,"ПРоба", NameSite.Text);
+            
+            //SightsDBEntities dbContext = new SightsDBEntities();
+            //dbContext.AddObject("EventSite", bla);
+            //dbContext.AddToEventSite(bla);
+            //dbContext.SaveChanges();
             
         }
     }
