@@ -12,19 +12,10 @@
     <link href="Styles/MapStyle.css" rel="stylesheet" type="text/css" />
     <script src="scripts/onLoadMap.js" type="text/javascript"></script>
     <script type="text/javascript">
-        //$("#<%=GridView1.ClientID %>").css('background', 'red');
-
-        
-
-        
-       
-
     </script>
-
-
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <script type="text/ecmascript">
+    <script type="text/javascript">
         function getCoordsClick() {
             var coords = $('#LabelCoords').html();
             coords = coords.split(',');
@@ -33,36 +24,60 @@
         }
 
         function showAddForm() {
-            $('#addSite').css('display', 'block');
+            var addSiteWidth = $('#addSite').width();
+            var mapWidth = $('#map').width();
+
+
+            if ($('#addSite').css('display') == 'none') {
+                $('#addSite').css('opacity', '0');
+                $('#addSite').css('display', 'block');
+                $('#map').animate({
+                width: mapWidth - addSiteWidth - 10 + 'px'
+                }, 'slow', function(){
+                $('#addSite').animate({opacity: 1}, 'slow');
+                });
+
+
+            }
+            else {
+                $('#addSite').animate({
+                opacity: 0}, 300, function(){
+                    $('#map').animate({ width: '100%' }, 300);
+                });
+
+                //$('#addSite').css('display', 'none');
+            }
         }
     </script>
 
 
 <asp:UpdatePanel ID="UpdatePanelMap" runat="server" UpdateMode="Always">
     <ContentTemplate>
-    
 
-    <div id="map" style="width: 800px; border: solid 1px red; height: 529px; color: white"
-    onclick="getCoordsClick()"
-    > 
-    
+    <div id="map" onclick="getCoordsClick()">
     </div>
 
-    <h1>
-    
-    map div
-    width: 590px;
-    height: 390px;
-    ratio: 1,5
-    </h1>
+    <script type="text/javascript">
+        var header = 120;   
+        var footer = 20;
+        var height = $(window).height() - header - footer + 'px';
+        var minheight = $("#map").css('min-height');
+
+        if (height < minheight) {
+            height = minheight;
+        }
+        $("#map").css('height', height);
+    </script>
 
     <div id="addSite" runat="server" clientidmode="Static" style="border: solid 1px red; width: 400px; height: 529px; 
         
         
         background: #3A4F63;
         color: White;
-        position: absolute; top: 120px; left: 850px;
-        display: block;
+        position: absolute; top: 0px; 
+        right: 12px;
+        z-index: 150;
+        display: none;
         ">
 
         <uc1:AddSiteControl ID="AddSiteControl1" runat="server" ClientIDMode="Static"/>
@@ -111,14 +126,25 @@
 </asp:UpdatePanel>
 
 
-<asp:GridView ID="GridViewSiteObjects" runat="server" style="display: block;" ClientIDMode="Static">
+
+
+<asp:GridView ID="GridViewEventObjects" runat="server" style="display: none;" ClientIDMode="Static">
 </asp:GridView>
 
-<asp:GridView ID="GridViewEventObjects" runat="server" style="display: block;" ClientIDMode="Static">
+<asp:GridView ID="GridViewDocObjects" runat="server" style="display: none;" ClientIDMode="Static">
 </asp:GridView>
 
-<asp:GridView ID="GridViewDocObjects" runat="server" style="display: block;" ClientIDMode="Static">
+<asp:GridView ID="GridViewSiteObjects" runat="server" style="display: none;" ClientIDMode="Static">
 </asp:GridView>
+
+    <%--<h1>
+    
+    map div
+    width: 590px;
+    height: 390px;
+    ratio: 1,5
+    </h1>--%>
+
 
 <script type="text/javascript">
     $(document).ready(function () {

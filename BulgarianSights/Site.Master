@@ -49,10 +49,10 @@
                         <asp:MenuItem NavigateUrl="~/SitesAdd.aspx" Text="Добави Обект" />
                     </Items>
                 </asp:Menu>
-                
+                <input type="button" onclick="showAddForm()" style="display: inline; z-index: 100; width: 100px;"/>
             </div>
         </div>
-        <div class="main">
+        <div class="main" style="position: relative;">
             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
         </div>
         <div class="clear">

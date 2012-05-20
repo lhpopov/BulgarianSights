@@ -35,3 +35,10 @@
     width: 180px;
 }
 
+#map
+{
+    //min-height: 600px;
+    min-width: 800px;
+    //width: 100%; 
+    border: solid 1px black; color: white"
+}
