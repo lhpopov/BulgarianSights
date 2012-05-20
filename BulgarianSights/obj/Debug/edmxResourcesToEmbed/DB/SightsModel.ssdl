@@ -11,7 +11,7 @@
       <PropertyRef Name="idSite" />
     </Key>
     <Property Name="idSite" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="site" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="siteText" Type="varchar" Nullable="false" MaxLength="100" />
     <Property Name="siteName" Type="varchar" MaxLength="100" />
     <Property Name="area" Type="varchar" MaxLength="100" />
     <Property Name="location" Type="varchar" MaxLength="100" />
@@ -33,19 +33,23 @@
     <Property Name="age" Type="varchar" MaxLength="100" />
     <Property Name="importance" Type="varchar" MaxLength="100" />
     <Property Name="culture" Type="varchar" MaxLength="100" />
+    <Property Name="docX" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="docY" Type="nchar" Nullable="false" MaxLength="10" />
   </EntityType>
   <EntityType Name="EventSite">
     <Key>
       <PropertyRef Name="idEvent" />
     </Key>
-    <Property Name="idEvent" Type="int" Nullable="false" />
-    <Property Name="event" Type="varchar" Nullable="false" MaxLength="1000" />
+    <Property Name="idEvent" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="eventText" Type="varchar" Nullable="false" MaxLength="1000" />
     <Property Name="eventName" Type="varchar" Nullable="false" MaxLength="100" />
     <Property Name="area" Type="varchar" MaxLength="100" />
     <Property Name="location" Type="varchar" MaxLength="100" />
     <Property Name="age" Type="varchar" MaxLength="100" />
     <Property Name="date" Type="varchar" MaxLength="10" />
     <Property Name="CulturalAndHistoricSitesId" Type="int" />
+    <Property Name="eventX" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="eventY" Type="nchar" Nullable="false" MaxLength="10" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>

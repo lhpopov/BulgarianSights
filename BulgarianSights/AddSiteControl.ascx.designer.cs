@@ -13,15 +13,6 @@ namespace BulgarianSights {
     public partial class AddSiteControl {
         
         /// <summary>
-        /// AddSiteUpdatePanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel AddSiteUpdatePanel;
-        
-        /// <summary>
         /// AddSiteControlWrapper control.
         /// </summary>
         /// <remarks>
@@ -85,6 +76,15 @@ namespace BulgarianSights {
         protected global::System.Web.UI.WebControls.TextBox age;
         
         /// <summary>
+        /// ImportanceTr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow ImportanceTr;
+        
+        /// <summary>
         /// importance control.
         /// </summary>
         /// <remarks>
@@ -121,15 +121,6 @@ namespace BulgarianSights {
         protected global::System.Web.UI.WebControls.TextBox DateEvent;
         
         /// <summary>
-        /// SaveSite control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SaveSite;
-        
-        /// <summary>
         /// siteX control.
         /// </summary>
         /// <remarks>
@@ -146,5 +137,23 @@ namespace BulgarianSights {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox siteY;
+        
+        /// <summary>
+        /// siteText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox siteText;
+        
+        /// <summary>
+        /// SaveSiteButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SaveSiteButton;
     }
 }

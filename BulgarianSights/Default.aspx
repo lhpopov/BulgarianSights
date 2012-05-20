@@ -63,8 +63,21 @@
                     //for (j in grid.rows[i].cells) {
                     if (i == 0)
                         continue;
-                    site.x = grid.rows[i].cells[8].innerHTML;
-                    site.y = grid.rows[i].cells[9].innerHTML;
+
+                    if (objects[layer] == "GridViewSiteObjects") {
+                        cellX = 7;
+                        cellY = 8;
+                    }
+
+                    if (objects[layer] == "GridViewEventObjects") {
+                        cellX = 8;
+                        cellY = 9;
+                    }
+
+
+
+                    site.x = grid.rows[i].cells[cellX].innerHTML;
+                    site.y = grid.rows[i].cells[cellY].innerHTML;
 
                     var objectName = grid.rows[i].cells[2].innerHTML;
                     var zoomLevel = 7;
@@ -72,11 +85,11 @@
                     var icon;
                     //addMarkerToMap(site.x, sitey, objectName);
                      if(objects[layer] == "GridViewSiteObjects")
-                     icon = new OpenLayers.Icon('images/doc.png', size, offset);
-                            else if(objects[layer] == "GridViewEventObjects")
-                     icon = new OpenLayers.Icon('images/buttons/pan.png', size, offset);
-                            else 
-                     icon = mainIcon.clone();
+                        icon = new OpenLayers.Icon('images/doc.png', size, offset);
+                    else if(objects[layer] == "GridViewEventObjects")
+                        icon = new OpenLayers.Icon('images/event.png', size, offset);
+                    else
+                        icon = new OpenLayers.Icon('images/buttons/pan.png', size, offset);
                         
                     //var icon = mainIcon.clone();
                     var coords = new OpenLayers.LonLat(site.x, site.y);
@@ -129,7 +142,7 @@
     </h1>
 
     <div id="addSite" runat="server" clientidmode="Static" style="border: solid 1px red; width: 400px; height: 529px; 
-        text-align: center;
+        
         
         background: #3A4F63;
         color: White;
@@ -145,17 +158,12 @@
     
     <%--<div id="panel" class="olToolbar" style="width: 400px; height: 30px; border: solid 3px blue;">
     </div>--%>
-
-    
-        <input type="button" value="Бургас" onclick="putMarker();" />
-        
-
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
             DataKeyNames="idSite" DataSourceID="SqlDataSource1" ClientIDMode="Static">
             <Columns>
                 <asp:BoundField DataField="idSite" HeaderText="idSite" 
                     InsertVisible="False" ReadOnly="True" SortExpression="idSite" />
-                <asp:BoundField DataField="site" HeaderText="site" 
+                <asp:BoundField DataField="siteText" HeaderText="site" 
                     SortExpression="site" />
                 <asp:BoundField DataField="siteName" HeaderText="siteName" 
                     SortExpression="siteName" />
@@ -188,9 +196,14 @@
 </asp:UpdatePanel>
 
 
-<asp:GridView ID="GridViewSiteObjects" runat="server" style="display: none;" ClientIDMode="Static">
+<asp:GridView ID="GridViewSiteObjects" runat="server" style="display: block;" ClientIDMode="Static">
 </asp:GridView>
 
+<asp:GridView ID="GridViewEventObjects" runat="server" style="display: block;" ClientIDMode="Static">
+</asp:GridView>
+
+<asp:GridView ID="GridViewDocObjects" runat="server" style="display: block;" ClientIDMode="Static">
+</asp:GridView>
 
 <script type="text/javascript">
     $(document).ready(function () {

@@ -4,8 +4,8 @@
     <EntitySetMapping Name="CulturalAndHistoricSites">
       <EntityTypeMapping TypeName="SightsDBModel.CulturalAndHistoricSites">
         <MappingFragment StoreEntitySet="CulturalAndHistoricSites">
+          <ScalarProperty Name="siteText" ColumnName="siteText" />
           <ScalarProperty Name="idSite" ColumnName="idSite" />
-          <ScalarProperty Name="site" ColumnName="site" />
           <ScalarProperty Name="siteName" ColumnName="siteName" />
           <ScalarProperty Name="area" ColumnName="area" />
           <ScalarProperty Name="location" ColumnName="location" />
@@ -20,6 +20,8 @@
     <EntitySetMapping Name="Documents">
       <EntityTypeMapping TypeName="SightsDBModel.Documents">
         <MappingFragment StoreEntitySet="Documents">
+          <ScalarProperty Name="docY" ColumnName="docY" />
+          <ScalarProperty Name="docX" ColumnName="docX" />
           <ScalarProperty Name="idDocument" ColumnName="idDocument" />
           <ScalarProperty Name="documentText" ColumnName="documentText" />
           <ScalarProperty Name="documentName" ColumnName="documentName" />
@@ -34,8 +36,10 @@
     <EntitySetMapping Name="EventSite">
       <EntityTypeMapping TypeName="SightsDBModel.EventSite">
         <MappingFragment StoreEntitySet="EventSite">
+          <ScalarProperty Name="eventY" ColumnName="eventY" />
+          <ScalarProperty Name="eventX" ColumnName="eventX" />
+          <ScalarProperty Name="eventText" ColumnName="eventText" />
           <ScalarProperty Name="idEvent" ColumnName="idEvent" />
-          <ScalarProperty Name="event" ColumnName="event" />
           <ScalarProperty Name="eventName" ColumnName="eventName" />
           <ScalarProperty Name="area" ColumnName="area" />
           <ScalarProperty Name="location" ColumnName="location" />

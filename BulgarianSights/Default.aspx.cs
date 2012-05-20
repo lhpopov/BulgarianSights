@@ -18,6 +18,12 @@ namespace BulgarianSights
         {
             GridViewSiteObjects.DataSource = GetCulturalAndHistoricSitesOnMap();
             GridViewSiteObjects.DataBind();
+
+            GridViewDocObjects.DataSource = GetDocumentsOnMap();
+            GridViewDocObjects.DataBind();
+
+            GridViewEventObjects.DataSource = GetEventsOnMap();
+            GridViewEventObjects.DataBind();
         }
         
 
@@ -62,6 +68,22 @@ namespace BulgarianSights
             sb.Append("</table>");
             */
 
+            return query;
+        }
+
+        public List<Documents> GetDocumentsOnMap()
+        {
+            SightsDBEntities dbContext = new SightsDBEntities();
+            List<Documents> query = (from Documents p in dbContext.Documents
+                                                    select p).OfType<Documents>().ToList();
+            return query;
+        }
+
+        public List<EventSite> GetEventsOnMap()
+        {
+            SightsDBEntities dbContext = new SightsDBEntities();
+            List<EventSite> query = (from EventSite p in dbContext.EventSite
+                                                    select p).OfType<EventSite>().ToList();
             return query;
         }
     }

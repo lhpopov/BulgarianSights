@@ -68,6 +68,7 @@
     <Content Include="Articles.aspx" />
     <Content Include="Images\buttons\pan.png" />
     <Content Include="Images\doc.png" />
+    <Content Include="Images\event.png" />
     <Content Include="Images\green_pin.png" />
     <Content Include="Map.aspx" />
     <Content Include="scripts\google-v3.js" />
@@ -2076,6 +2077,7 @@
     <Content Include="scripts\openlayers\tools\shrinksafe.py" />
     <Content Include="scripts\openlayers\tools\toposort.py" />
     <Content Include="SitesAdd.aspx" />
+    <Content Include="Styles\main.css" />
     <Content Include="Styles\MapStyle.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />

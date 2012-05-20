@@ -1,0 +1,36 @@
+﻿#AddSiteControlWrapper
+{
+    padding: 10px;
+}
+
+.AddSiteInputElem
+{   
+    width: 180px;
+    background: white;
+}
+
+#SiteTypeDropDown
+{
+    width: 185px;
+    background: white;
+}
+
+
+#SaveSiteButton
+{
+    width: 187px;
+    //width: 140px;
+    background: #465C71;
+    font-weight: bold;
+    font-size: 120%;
+    font-family: helvetica;
+    color: white;
+    height: 40px;
+    display: block;
+    float: right;
+}
+
+#siteText
+{
+    width: 180px;
+}
