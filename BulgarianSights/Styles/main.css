@@ -35,7 +35,7 @@
 
 #map
 {
-    /*min-height: 600px;*/
+    min-height: 400px;
     min-width: 800px; /*width: 100%; */
     border: solid 1px black;
     color: white;
@@ -45,7 +45,7 @@
 {
     border: solid 1px red;
     width: 400px;
-    min-height: 529px;
+    min-height: 400px;
     background: #3A4F63;
     color: White;
     position: absolute;
@@ -55,13 +55,40 @@
     display: none;
 }
 
-#viewSite
+#viewSiteList
 {
-    background: #4983B9;
-    /*display: block;
+    background: #3A4F63;
+    display: block;
     position: relative;
     left: 0px;
     top: 0px;
-*/
+    padding: 15px;
 }
 
+#ViewSiteContent
+{
+    width: 700px;
+    position: absolute;
+    left: 350px;
+    top: 0px;
+    text-align: justify;
+    background: white;
+}
+
+#ViewSiteType
+{
+    width: 250px;
+}
+
+.ListGridAll
+{
+    //color: ;
+    font-weight: bold;
+    background: white;
+}
+
+.HeaderStyle
+{
+    background: black;
+    color: white;
+}

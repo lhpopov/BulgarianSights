@@ -14,7 +14,18 @@ namespace BulgarianSights
         protected void Page_Load(object sender, EventArgs e)
         {
             //  GetCulturalAndHistoricSitesOnMap();
+            ListGridView.ShowHeader = true;
+            DocGridView.ShowHeader = true;
+            EventGridView.ShowHeader = true;
 
+            GetCulturalAndHistoricSitesOnMap();
+            ListGridView.Visible = true;
+
+            GetDocumentsOnMap();
+            DocGridView.Visible = true;
+
+            GetEventsOnMap();
+            EventGridView.Visible = true;
         }
 
         protected void ViewSiteTypeDropDown_Init(object sender, EventArgs e)
@@ -64,6 +75,7 @@ namespace BulgarianSights
                     EventGridView.Visible = false;
                 }
 
+                DocGridView.ShowHeader = true;
                 GetDocumentsOnMap();
                 DocGridView.Visible = true;
             }
@@ -75,6 +87,7 @@ namespace BulgarianSights
                     ListGridView.Visible = false;
                 }
 
+                EventGridView.ShowHeader = true;
                 GetEventsOnMap();
                 EventGridView.Visible = true;
             }
@@ -120,11 +133,6 @@ namespace BulgarianSights
 
             EventGridView.DataSource = query;
             EventGridView.DataBind();
-        }
-
-        protected void bla(object sender, EventArgs e)
-        {
-            ViewSiteContent.InnerHtml = "<!-- #Include virtual=\"Documents/index.html\" -->";
         }
     }
 }

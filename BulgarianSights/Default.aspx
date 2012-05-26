@@ -17,6 +17,7 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <script type="text/javascript">
+
         function getCoordsClick() {
             var coords = $('#LabelCoords').html();
             coords = coords.split(',');
@@ -42,7 +43,7 @@
                 $('#map').animate({
                 width: mapWidth - addSiteWidth + 'px'
                 }, 'slow', function(){
-                $('#addSite').animate({opacity: 1}, 'slow');
+                    $('#addSite').animate({ opacity: 1, height: height }, 'slow');
                 });
 
 
@@ -62,6 +63,7 @@
         function showViewForm() {
             var addSiteWidth = $('#addSite').width() + 10;
             var mapWidth = $('#map').width();
+            var mapHeight = $('#map').height();
 
             if ($("#addSite").css('display') != 'none') {
                 $('#addSite').animate({
@@ -77,7 +79,7 @@
                 $('#map').animate({
                     width: mapWidth - addSiteWidth + 'px'
                 }, 'slow', function () {
-                    $('#viewSite').animate({ opacity: 1 }, 'slow');
+                    $('#viewSite').animate({ opacity: 1, height: mapHeight }, 'slow');
                 });
 
 
@@ -123,12 +125,14 @@
         <uc1:ViewSiteListControl ID="ViewSiteListControl" runat="server" ClientIDMode="Static"/>
     </div>
 
-    <div id="LabelCoords" style="width: 200px; height: 30px; background: blue; color: white;">
+    <div id="LabelCoords" style="width: auto; background: white; color: black;">
     </div>
     
     <%--<div id="panel" class="olToolbar" style="width: 400px; height: 30px; border: solid 3px blue;">
     </div>--%>
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
+
+
+    <%--<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
             DataKeyNames="idSite" DataSourceID="SqlDataSource1" ClientIDMode="Static">
             <Columns>
                 <asp:BoundField DataField="idSite" HeaderText="idSite" 
@@ -160,7 +164,7 @@
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
             ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
             SelectCommand="SELECT * FROM [CulturalAndHistoricSites]">
-        </asp:SqlDataSource>
+        </asp:SqlDataSource>--%>
 
 <%--    </ContentTemplate>
 </asp:UpdatePanel>--%>
@@ -173,13 +177,13 @@
 </Triggers>--%>
     <ContentTemplate>
 
-    <asp:GridView ID="GridViewEventObjects" runat="server" style="display: none;" ClientIDMode="Static">
+    <asp:GridView ID="GridViewEventObjects" runat="server" style="display: block;" ClientIDMode="Static">
     </asp:GridView>
 
-    <asp:GridView ID="GridViewDocObjects" runat="server" style="display: none;" ClientIDMode="Static">
+    <asp:GridView ID="GridViewDocObjects" runat="server" style="display: block;" ClientIDMode="Static">
     </asp:GridView>
 
-    <asp:GridView ID="GridViewSiteObjects" runat="server" style="display: none;" ClientIDMode="Static">
+    <asp:GridView ID="GridViewSiteObjects" runat="server" style="display: block;" ClientIDMode="Static">
     </asp:GridView>
 
     </ContentTemplate>

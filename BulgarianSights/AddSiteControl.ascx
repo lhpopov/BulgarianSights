@@ -107,11 +107,13 @@
                 </tr>
                 <tr id="TextTr">
                     <td style="vertical-align: top;">
-                        Текст: *
+                        Линк: *
                     </td>
                     <td>
-                        <asp:TextBox ID="siteText" runat="server" ToolTip="Допълнителна информация  за обекта."
-                            ClientIDMode="Static" Wrap="True" TextMode="MultiLine" Rows="8" />
+                        <%--<asp:TextBox ID="siteText" runat="server" ToolTip="Допълнителна информация  за обекта."
+                            ClientIDMode="Static" Wrap="True" TextMode="MultiLine" Rows="8" />--%>
+                            <asp:TextBox ID="siteText" runat="server" ToolTip="Допълнителна информация  за обекта."
+                            ClientIDMode="Static" Wrap="True" />
                     </td>
                 </tr>
                 <tr>

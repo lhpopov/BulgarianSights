@@ -67,6 +67,8 @@
     </Content>
     <Content Include="Articles.aspx" />
     <Content Include="Documents\index.html" />
+    <Content Include="Documents\kyustendil_termi-1.jpg" />
+    <Content Include="Documents\kyustendil_termi.htm" />
     <Content Include="Images\buttons\pan.png" />
     <Content Include="Images\doc.png" />
     <Content Include="Images\event.png" />

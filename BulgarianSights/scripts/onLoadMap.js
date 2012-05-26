@@ -36,12 +36,10 @@ function ShowObjectsOnLoadMap() {
         markers = new OpenLayers.Layer.Markers(layerNames[layer]);
         map.addLayer(markers);
 
-        var grid = document.getElementById(objects[layer]);
+        grid = document.getElementById(objects[layer]);
 
-        for (i in grid.rows) {
-            //for (j in grid.rows[i].cells) {
-            if (i == 0)
-                continue;
+        for (var i = 1; i < grid.rows.length; i++ ) {
+            
             if (objects[layer] == "GridViewSiteObjects") {
                 cellX = 8;
                 cellY = 9;
@@ -51,12 +49,12 @@ function ShowObjectsOnLoadMap() {
                 cellY = 9;
             }
 
-           var cellX = 8;
-           var cellY = 9;
+            var cellX = 8;
+            var cellY = 9;
 
 
-           var x = grid.rows[i].cells[cellX].innerHTML;
-           var y = grid.rows[i].cells[cellY].innerHTML;
+            var x = grid.rows[i].cells[cellX].innerHTML;
+            var y = grid.rows[i].cells[cellY].innerHTML;
 
             //var objectName = grid.rows[i].cells[2].innerHTML;
             var zoomLevel = 7;

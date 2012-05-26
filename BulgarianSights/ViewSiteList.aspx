@@ -8,26 +8,27 @@
     <script type="text/javascript">
 
         function loadInfo(href) {
-            $("#ViewSiteContent").load(href);
+            $("#ViewSiteContent").load(href).delay(1000, function () { bla(); });
+            
         }
+
+        
     </script>
 
      <script type="text/javascript">
-         var header = 120;
-         var footer = 20;
-         var height = $(window).height() - header - footer + 'px';
-         var minheight = $("#ViewSiteWrapper").css('min-height');
-
-         if (height < minheight) {
-             height = minheight;
-         }
-         $("#ViewSiteWrapper").css('height', height);
+        
     </script>
 
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-
-    <div id="viewSite" style="width: 250px;
+<div id="ListWrapper" style="background: #3A4F63">
+<script type="text/javascript">
+    function bla() {
+        var height = $("#ViewSiteContent").height();
+        $("#ListWrapper").css('height', height);
+    }
+</script>
+    <div id="viewSiteList" style="width: 250px;
         min-height: 200px;
         border: solid 1px;">
         <asp:DropDownList ID="ViewSiteType" runat="server" ClientIDMode="Static" OnSelectedIndexChanged="InitListGridView"
@@ -38,10 +39,11 @@
             <asp:AsyncPostBackTrigger ControlID="ViewSiteType" EventName="SelectedIndexChanged" />
         </Triggers>
             <ContentTemplate>
-                <asp:GridView ID="ListGridView" runat="server" ClientIDMode="Static" AutoGenerateColumns="false" Visible="false">
+            <br />
+                <asp:GridView ID="ListGridView" runat="server" ClientIDMode="Static" AutoGenerateColumns="false" Visible="false" CssClass="ListGridAll">
                     <Columns>
-                    <asp:BoundField DataField="siteName" HeaderText="Обект" ReadOnly="True" HeaderStyle-Width="200px" ItemStyle-Width="200px"/>
-                    <asp:TemplateField HeaderText="Инфо" HeaderStyle-Width="50px" ItemStyle-Width="50px">
+                    <asp:BoundField DataField="siteName" HeaderText="Обект" ReadOnly="True" HeaderStyle-Width="200px" ItemStyle-Width="200px" HeaderStyle-CssClass="HeaderStyle"/>
+                    <asp:TemplateField HeaderText="Инфо" HeaderStyle-Width="50px" ItemStyle-Width="50px" HeaderStyle-CssClass="HeaderStyle">
                         <ItemTemplate>
                             <asp:HyperLink ID="eventText" runat="server" NavigateUrl='<%# "javascript:loadInfo(\"" + Eval("siteText") + "\")" %>' Text="инфо"/>
                         </ItemTemplate>
@@ -50,26 +52,26 @@
                 </asp:GridView>
 
 
-                <asp:GridView ID="DocGridView" runat="server" ClientIDMode="Static" AutoGenerateColumns="false" Visible="false" ShowHeader="false">
+                <asp:GridView ID="DocGridView" runat="server" ClientIDMode="Static" AutoGenerateColumns="false" Visible="false" ShowHeader="false" CssClass="ListGridAll">
                     <Columns>
-                    <asp:BoundField DataField="documentName" HeaderText="Обект" ReadOnly="True" HeaderStyle-Width="150px" ItemStyle-Width="150px"/>
-                    <asp:TemplateField HeaderText="Инфо" HeaderStyle-Width="150px" ItemStyle-Width="150px">  
+                    <asp:BoundField DataField="documentName" HeaderText="Документ" ReadOnly="True" HeaderStyle-Width="200px" ItemStyle-Width="200px" HeaderStyle-CssClass="HeaderStyle"/>
+                    <asp:TemplateField HeaderText="Инфо" HeaderStyle-Width="50px" ItemStyle-Width="50px" HeaderStyle-CssClass="HeaderStyle">  
                         <ItemTemplate> 
-                            <asp:Label ID="DocText" runat="server" Text='<%# Eval("documentText") %>'></asp:Label>, 
+                            <asp:HyperLink ID="eventText" runat="server" NavigateUrl='<%# "javascript:loadInfo(\"" + Eval("documentText") + "\")" %>' Text="инфо"/>
                         </ItemTemplate>
-                    </asp:TemplateField>                     
+                    </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
 
 
-                <asp:GridView ID="EventGridView" runat="server" ClientIDMode="Static" AutoGenerateColumns="false" Visible="false" ShowHeader="false">
+                <asp:GridView ID="EventGridView" runat="server" ClientIDMode="Static" AutoGenerateColumns="false" Visible="false" ShowHeader="false" CssClass="ListGridAll">
                     <Columns>
-                    <asp:BoundField DataField="eventName" HeaderText="Обект" ReadOnly="True" HeaderStyle-Width="150px" ItemStyle-Width="200px"/>
-                    <asp:TemplateField HeaderText="Инфо" HeaderStyle-Width="150px" ItemStyle-Width="50px"> 
+                    <asp:BoundField DataField="eventName" HeaderText="Събитие" ReadOnly="True" HeaderStyle-Width="200px" ItemStyle-Width="200px" HeaderStyle-CssClass="HeaderStyle"/>
+                    <asp:TemplateField HeaderText="Инфо" HeaderStyle-Width="50px" ItemStyle-Width="50px" HeaderStyle-CssClass="HeaderStyle"> 
                         <ItemTemplate> 
-                            <asp:HyperLink ID="eventText" runat="server" NavigateUrl='<%# Eval("eventText") %>' Text="инфо"/>
+                            <asp:HyperLink ID="eventText" runat="server" NavigateUrl='<%# "javascript:loadInfo(\"" + Eval("eventText") + "\")" %>' Text="инфо"/>
                         </ItemTemplate>
-                    </asp:TemplateField>                     
+                    </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
                 
@@ -80,22 +82,20 @@
         var header = 120;
         var footer = 20;
         var height = $(window).height() - header - footer + 'px';
-        var minheight = $("#viewSite").css('min-height');
+        var minheight = $("#viewSiteList").css('min-height');
 
         if (height < minheight) {
             height = minheight;
         }
-        $("#viewSite").css('height', height);
+        $("#viewSiteList").css('height', height);
     </script>
     <asp:UpdatePanel ID="rpbla" runat="server" UpdateMode="Always">
         <ContentTemplate>
-            <div id="ViewSiteContent" runat="server" clientidmode="Static" style="width: 700px;
-                border: solid 1px blue;
-                position: absolute;
-                left: 350px;
-                top: 0px;">
+            <div id="ViewSiteContent">
             </div>
 
         </ContentTemplate>
     </asp:UpdatePanel>
+
+</div>
 </asp:Content>
