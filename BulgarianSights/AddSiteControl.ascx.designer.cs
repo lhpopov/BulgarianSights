@@ -13,6 +13,15 @@ namespace BulgarianSights {
     public partial class AddSiteControl {
         
         /// <summary>
+        /// AddSiteUpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel AddSiteUpdatePanel;
+        
+        /// <summary>
         /// AddSiteControlWrapper control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace BulgarianSights {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList SiteTypeDropDown;
+        
+        /// <summary>
+        /// ErrorType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ErrorType;
         
         /// <summary>
         /// ErrorSiteType control.
@@ -155,5 +173,14 @@ namespace BulgarianSights {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button SaveSiteButton;
+        
+        /// <summary>
+        /// ErrorLiteral control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ErrorLiteral;
     }
 }

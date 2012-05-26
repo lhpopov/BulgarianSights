@@ -4,7 +4,7 @@
 }
 
 .AddSiteInputElem
-{   
+{
     width: 180px;
     background: white;
 }
@@ -19,7 +19,6 @@
 #SaveSiteButton
 {
     width: 187px;
-    //width: 140px;
     background: #465C71;
     font-weight: bold;
     font-size: 120%;
@@ -27,7 +26,6 @@
     color: white;
     height: 40px;
     display: block;
-    float: right;
 }
 
 #siteText
@@ -37,8 +35,33 @@
 
 #map
 {
-    //min-height: 600px;
-    min-width: 800px;
-    //width: 100%; 
-    border: solid 1px black; color: white"
+    /*min-height: 600px;*/
+    min-width: 800px; /*width: 100%; */
+    border: solid 1px black;
+    color: white;
 }
+
+#addSite, #viewSite
+{
+    border: solid 1px red;
+    width: 400px;
+    min-height: 529px;
+    background: #3A4F63;
+    color: White;
+    position: absolute;
+    top: 0px;
+    right: 12px;
+    z-index: 150;
+    display: none;
+}
+
+#viewSite
+{
+    background: #4983B9;
+    /*display: block;
+    position: relative;
+    left: 0px;
+    top: 0px;
+*/
+}
+

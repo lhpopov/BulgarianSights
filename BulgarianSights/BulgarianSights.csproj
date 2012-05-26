@@ -66,6 +66,7 @@
       <DependentUpon>SightsDB.mdf</DependentUpon>
     </Content>
     <Content Include="Articles.aspx" />
+    <Content Include="Documents\index.html" />
     <Content Include="Images\buttons\pan.png" />
     <Content Include="Images\doc.png" />
     <Content Include="Images\event.png" />
@@ -1089,6 +1090,8 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="ViewSiteList.ascx" />
+    <Content Include="ViewSiteList.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1178,6 +1181,20 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSiteList.ascx.cs">
+      <DependentUpon>ViewSiteList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSiteList.ascx.designer.cs">
+      <DependentUpon>ViewSiteList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSiteList.aspx.cs">
+      <DependentUpon>ViewSiteList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSiteList.aspx.designer.cs">
+      <DependentUpon>ViewSiteList.aspx</DependentUpon>
     </Compile>
     <EntityDeploy Include="DB\SightsModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

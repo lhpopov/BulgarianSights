@@ -44,12 +44,13 @@
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                     <Items>
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Начало"/>
-                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
-                        <asp:MenuItem NavigateUrl="~/Articles.aspx" Text="Обекти"/>
-                        <asp:MenuItem NavigateUrl="~/SitesAdd.aspx" Text="Добави Обект" />
+                        <asp:MenuItem NavigateUrl="javascript:showViewForm()" Text="Виж Обектите"/>
+                        <asp:MenuItem NavigateUrl="~/ViewSiteList.aspx" Text="Обекти"/>
+                        <asp:MenuItem NavigateUrl="javascript:showAddForm()" Text="Добави Обект" />
                     </Items>
                 </asp:Menu>
-                <input type="button" onclick="showAddForm()" style="display: inline; z-index: 100; width: 100px;"/>
+                <%--<input type="button" onclick="showAddForm()" value="Добави" style="display: inline; z-index: 100; width: 100px;"/>
+                <input type="button" onclick="showViewForm()" value="Лист" style="display: inline; z-index: 100; width: 100px;"/>--%>
             </div>
         </div>
         <div class="main" style="position: relative;">

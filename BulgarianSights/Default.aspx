@@ -4,6 +4,7 @@
 
 
 <%@ Register src="AddSiteControl.ascx" tagname="AddSiteControl" tagprefix="uc1" %>
+<%@ Register src="~/ViewSiteList.ascx" tagname="ViewSiteListControl" tagprefix="uc1" %>
 
 
 
@@ -24,15 +25,22 @@
         }
 
         function showAddForm() {
-            var addSiteWidth = $('#addSite').width();
+            var addSiteWidth = $('#addSite').width() + 10;
             var mapWidth = $('#map').width();
 
+            if ($("#viewSite").css('display') != 'none') {
+                $('#viewSite').animate({
+                    opacity: 0
+                }, 300).css('display', 'none');
+
+                addSiteWidth = 0;
+            }
 
             if ($('#addSite').css('display') == 'none') {
                 $('#addSite').css('opacity', '0');
                 $('#addSite').css('display', 'block');
                 $('#map').animate({
-                width: mapWidth - addSiteWidth - 10 + 'px'
+                width: mapWidth - addSiteWidth + 'px'
                 }, 'slow', function(){
                 $('#addSite').animate({opacity: 1}, 'slow');
                 });
@@ -41,20 +49,57 @@
             }
             else {
                 $('#addSite').animate({
-                opacity: 0}, 300, function(){
+                    opacity: 0
+                }, 300, function () {
                     $('#map').animate({ width: '100%' }, 300);
+                    $(this).css('display', 'none')
+                }) ;
+
+                
+            }
+        }
+
+        function showViewForm() {
+            var addSiteWidth = $('#addSite').width() + 10;
+            var mapWidth = $('#map').width();
+
+            if ($("#addSite").css('display') != 'none') {
+                $('#addSite').animate({
+                    opacity: 0
+                }, 300).css('display', 'none');
+
+                addSiteWidth = 0;
+            }
+
+            if ($('#viewSite').css('display') == 'none') {
+                $('#viewSite').css('opacity', '0');
+                $('#viewSite').css('display', 'block');
+                $('#map').animate({
+                    width: mapWidth - addSiteWidth + 'px'
+                }, 'slow', function () {
+                    $('#viewSite').animate({ opacity: 1 }, 'slow');
                 });
 
-                //$('#addSite').css('display', 'none');
+
+            }
+            else {
+                $('#viewSite').animate({
+                    opacity: 0
+                }, 300, function () {
+                    $('#map').animate({ width: '100%' }, 300);
+                    $(this).css('display', 'none')
+                });
+
+
             }
         }
     </script>
 
 
-<asp:UpdatePanel ID="UpdatePanelMap" runat="server" UpdateMode="Always">
-    <ContentTemplate>
+<%--<asp:UpdatePanel ID="UpdatePanelMap" runat="server" UpdateMode="Always">
+    <ContentTemplate>--%>
 
-    <div id="map" onclick="getCoordsClick()">
+    <div id="map" onclick="getCoordsClick()" runat="server" clientidmode="static">
     </div>
 
     <script type="text/javascript">
@@ -69,20 +114,15 @@
         $("#map").css('height', height);
     </script>
 
-    <div id="addSite" runat="server" clientidmode="Static" style="border: solid 1px red; width: 400px; height: 529px; 
-        
-        
-        background: #3A4F63;
-        color: White;
-        position: absolute; top: 0px; 
-        right: 12px;
-        z-index: 150;
-        display: none;
-        ">
-
+    <div id="addSite" runat="server" clientidmode="Static">
         <uc1:AddSiteControl ID="AddSiteControl1" runat="server" ClientIDMode="Static"/>
-
+        <%--<uc1:ViewSiteListControl ID="ViewSiteListControl" runat="server" ClientIDMode="Static"/>--%>
     </div>
+
+     <div id="viewSite" runat="server" clientidmode="Static">
+        <uc1:ViewSiteListControl ID="ViewSiteListControl" runat="server" ClientIDMode="Static"/>
+    </div>
+
     <div id="LabelCoords" style="width: 200px; height: 30px; background: blue; color: white;">
     </div>
     
@@ -122,20 +162,28 @@
             SelectCommand="SELECT * FROM [CulturalAndHistoricSites]">
         </asp:SqlDataSource>
 
+<%--    </ContentTemplate>
+</asp:UpdatePanel>--%>
+
+
+
+<asp:UpdatePanel ID="UpdatePanelMap" runat="server" UpdateMode="Always">
+<%--<Triggers>
+    <asp:AsyncPostBackTrigger ControlID="SaveSiteButton" EventName="Click" />
+</Triggers>--%>
+    <ContentTemplate>
+
+    <asp:GridView ID="GridViewEventObjects" runat="server" style="display: none;" ClientIDMode="Static">
+    </asp:GridView>
+
+    <asp:GridView ID="GridViewDocObjects" runat="server" style="display: none;" ClientIDMode="Static">
+    </asp:GridView>
+
+    <asp:GridView ID="GridViewSiteObjects" runat="server" style="display: none;" ClientIDMode="Static">
+    </asp:GridView>
+
     </ContentTemplate>
 </asp:UpdatePanel>
-
-
-
-
-<asp:GridView ID="GridViewEventObjects" runat="server" style="display: none;" ClientIDMode="Static">
-</asp:GridView>
-
-<asp:GridView ID="GridViewDocObjects" runat="server" style="display: none;" ClientIDMode="Static">
-</asp:GridView>
-
-<asp:GridView ID="GridViewSiteObjects" runat="server" style="display: none;" ClientIDMode="Static">
-</asp:GridView>
 
     <%--<h1>
     

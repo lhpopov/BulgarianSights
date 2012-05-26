@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 using BulgarianSights.DB;
 
+
 namespace BulgarianSights
 {
     public partial class AddSiteControl : System.Web.UI.UserControl
@@ -35,25 +36,20 @@ namespace BulgarianSights
                 DateTr.Visible = false;
                 ImportanceTr.Visible = true;
 
-                area.Text = "Обект";
+                //area.Text = "Обект";
             }
             else if (SiteTypeDropDown.SelectedIndex == 2)
             {
                 DateTr.Visible = false;
                 ImportanceTr.Visible = true;
 
-                area.Text = "Документ";
+                //area.Text = "Документ";
             }
             else if (SiteTypeDropDown.SelectedIndex == 3)
             {
                 area.Text = "Събитие";
                 DateTr.Visible = true;
                 ImportanceTr.Visible = false;
-                //area.Text = "3";
-                //SightsDBEntities dbContext = new SightsDBEntities();
-                //EventSite newEvent = EventSite.CreateEventSite( 56, "ПРоба", Name.Text, 4);
-                //dbContext.AddObject(;
-
             }
             //else if
             //(SiteTypeDropDown.SelectedIndex == 0)
@@ -62,9 +58,66 @@ namespace BulgarianSights
 
         protected void SaveSite_Click(object sender, EventArgs e)
         {
-            //EventSite bla = EventSite.CreateEventSite(2, "ПРоба", NameSite.Text);
-            //SightsDBEntities dbContext = new SightsDBEntities();
-            //dbContext.AddObject("EventSite", bla);
+            //if (NameSite.Text == "" || siteX.Text == "" || siteY.Text == "")
+            //{
+            if (SiteTypeDropDown.SelectedIndex == 0)
+            {
+                SiteTypeDropDown.Style["background"] = "#FDC4C4";
+                ErrorType.InnerHtml = "Моля изберете тип обект.";
+            }
+            else
+            {
+                SiteTypeDropDown.Style["background"] = "";
+                ErrorType.InnerHtml = "";
+            }
+
+            if (NameSite.Text == "")
+            {
+                //NameSite.Style["border"] = "solid 2px red";
+                NameSite.Style["background"] = "#FDC4C4";
+                ErrorLiteral.Text = "Попълнете задължителните полета.";
+            }
+            else
+            {
+                NameSite.Style["background"] = "";
+                ErrorLiteral.Text = "";
+            }
+            if (siteX.Text == "")
+            {
+                siteX.Style["background"] = "#FDC4C4";
+                ErrorLiteral.Text = "Попълнете задължителните полета.";
+            }
+            else
+            {
+                siteX.Style["background"] = "";
+                ErrorLiteral.Text = "";
+            }
+            if (siteY.Text == "")
+            {
+                siteY.Style["background"] = "#FDC4C4";
+                ErrorLiteral.Text = "Попълнете задължителните полета.";
+            }
+            else
+            {
+                siteY.Style["background"] = "";
+                ErrorLiteral.Text = "";
+            }
+
+            if (siteText.Text == "")
+            {
+                siteText.Style["background"] = "#FDC4C4";
+                ErrorLiteral.Text = "Попълнете задължителните полета.";
+            }
+            else
+            {
+                siteText.Style["background"] = "";
+                ErrorLiteral.Text = "";
+            }
+
+            //NameSite.Style["background"] = "";
+            //siteX.Style["background"] = "";
+            //siteY.Style["background"] = "";
+            //ErrorLiteral.Text = "";
             SightsDBEntities dbContext = new SightsDBEntities();
 
             switch (SiteTypeDropDown.SelectedIndex)
@@ -122,6 +175,13 @@ namespace BulgarianSights
                     break;
             }
             /* End of Switch Case statement */
+
+            
+            //_Default bla = new _Default();
+            //bla.GetCulturalAndHistoricSitesOnMap();
+
+            //Page(_Default).GetCulturalAndHistoricSitesOnMap();
+            //ScriptManager.RegisterOnSubmitStatement(this, this.GetType(), "bla", "init();");
         }
     }
 }

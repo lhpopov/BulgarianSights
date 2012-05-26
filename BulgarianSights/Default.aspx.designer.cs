@@ -13,13 +13,13 @@ namespace BulgarianSights {
     public partial class _Default {
         
         /// <summary>
-        /// UpdatePanelMap control.
+        /// map control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanelMap;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl map;
         
         /// <summary>
         /// addSite control.
@@ -40,6 +40,24 @@ namespace BulgarianSights {
         protected global::BulgarianSights.AddSiteControl AddSiteControl1;
         
         /// <summary>
+        /// viewSite control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl viewSite;
+        
+        /// <summary>
+        /// ViewSiteListControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::BulgarianSights.ViewSiteList ViewSiteListControl;
+        
+        /// <summary>
         /// GridView1 control.
         /// </summary>
         /// <remarks>
@@ -56,6 +74,15 @@ namespace BulgarianSights {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        
+        /// <summary>
+        /// UpdatePanelMap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelMap;
         
         /// <summary>
         /// GridViewEventObjects control.
