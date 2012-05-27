@@ -177,13 +177,13 @@
 </Triggers>--%>
     <ContentTemplate>
 
-    <asp:GridView ID="GridViewEventObjects" runat="server" style="display: block;" ClientIDMode="Static">
+    <asp:GridView ID="GridViewEventObjects" runat="server" style="display: none;" ClientIDMode="Static">
     </asp:GridView>
 
-    <asp:GridView ID="GridViewDocObjects" runat="server" style="display: block;" ClientIDMode="Static">
+    <asp:GridView ID="GridViewDocObjects" runat="server" style="display: none;" ClientIDMode="Static">
     </asp:GridView>
 
-    <asp:GridView ID="GridViewSiteObjects" runat="server" style="display: block;" ClientIDMode="Static">
+    <asp:GridView ID="GridViewSiteObjects" runat="server" style="display: none;" ClientIDMode="Static">
     </asp:GridView>
 
     </ContentTemplate>

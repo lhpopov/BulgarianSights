@@ -78,14 +78,14 @@ function init() {
 
 
 
-    var markers = new OpenLayers.Layer.Markers("Markers");
-    markers.id = "Markers";
-    map.addLayer(markers);
+//    var markers = new OpenLayers.Layer.Markers("Markers");
+//    markers.id = "Markers";
+//    map.addLayer(markers);
 
-    var size = new OpenLayers.Size(21, 25);
-    var offset = new OpenLayers.Pixel(-(size.w / 2), -size.h);
-    var icon = new OpenLayers.Icon('http://www.openlayers.org/dev/img/marker.png', size, offset);
-    markers.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(2810458.86, 5258913.45), icon));
+//    var size = new OpenLayers.Size(21, 25);
+//    var offset = new OpenLayers.Pixel(-(size.w / 2), -size.h);
+//    var icon = new OpenLayers.Icon('http://www.openlayers.org/dev/img/marker.png', size, offset);
+//    markers.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(2810458.86, 5258913.45), icon));
 
     ShowObjectsOnLoadMap();
 

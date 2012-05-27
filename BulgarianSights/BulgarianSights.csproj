@@ -65,10 +65,92 @@
     <Content Include="App_Data\SightsDB_log.ldf">
       <DependentUpon>SightsDB.mdf</DependentUpon>
     </Content>
-    <Content Include="Articles.aspx" />
-    <Content Include="Documents\index.html" />
-    <Content Include="Documents\kyustendil_termi-1.jpg" />
-    <Content Include="Documents\kyustendil_termi.htm" />
+    <Content Include="Documents\Aleksandar Nevski - Sofia_Images\Aleksandar Nevski - Sofia_1.jpg" />
+    <Content Include="Documents\Aleksandar Nevski - Sofia_Images\Aleksandar Nevski - Sofia_2.jpg" />
+    <Content Include="Documents\Aleksandar_Nevski-Sofia.htm" />
+    <Content Include="Documents\antichen teatar - plovdiv_Images\antichen teatar - plovdiv_1.jpg" />
+    <Content Include="Documents\antichen teatar - plovdiv_Images\antichen teatar - plovdiv_2.jpg" />
+    <Content Include="Documents\antichen_teatar-plovdiv.htm" />
+    <Content Include="Documents\bachkovski manastir_Images\bachkovski manastir_1.jpg" />
+    <Content Include="Documents\bachkovski manastir_Images\bachkovski manastir_2.jpg" />
+    <Content Include="Documents\bachkovski manastir_Images\bachkovski manastir_3.jpg" />
+    <Content Include="Documents\bachkovski manastir_Images\bachkovski manastir_4.jpg" />
+    <Content Include="Documents\bachkovski manastir_Images\bachkovski manastir_5.png" />
+    <Content Include="Documents\bachkovski manastir_Images\bachkovski manastir_6.jpg" />
+    <Content Include="Documents\bachkovski manastir_Images\bachkovski manastir_7.jpg" />
+    <Content Include="Documents\bachkovski_manastir.htm" />
+    <Content Include="Documents\boqnska carkva - sofia_Images\boqnska carkva - sofia_1.jpg" />
+    <Content Include="Documents\boqnska carkva - sofia_Images\boqnska carkva - sofia_2.png" />
+    <Content Include="Documents\boqnska carkva - sofia_Images\boqnska carkva - sofia_3.jpg" />
+    <Content Include="Documents\boqnska_carkva-sofia.htm" />
+    <Content Include="Documents\carevets - v.tarnovo_Images\carevets - v.tarnovo_1.jpg" />
+    <Content Include="Documents\carevets - v.tarnovo_Images\carevets - v.tarnovo_2.jpg" />
+    <Content Include="Documents\carevets - v.tarnovo_Images\carevets - v.tarnovo_3.jpg" />
+    <Content Include="Documents\carevets - v.tarnovo_Images\carevets - v.tarnovo_4.jpg" />
+    <Content Include="Documents\carevets-v.tarnovo.htm" />
+    <Content Include="Documents\halokoliten nekropol- varna_Images\halokoliten nekropol- varna_1.jpg" />
+    <Content Include="Documents\halokoliten nekropol- varna_Images\halokoliten nekropol- varna_2.jpg" />
+    <Content Include="Documents\halokoliten nekropol- varna_Images\halokoliten nekropol- varna_3.jpg" />
+    <Content Include="Documents\halokoliten nekropol- varna_Images\halokoliten nekropol- varna_4.jpg" />
+    <Content Include="Documents\halokoliten nekropol- varna_Images\halokoliten nekropol- varna_5.jpg" />
+    <Content Include="Documents\halokoliten nekropol- varna_Images\halokoliten nekropol- varna_6.jpg" />
+    <Content Include="Documents\halokoliten nekropol- varna_Images\halokoliten nekropol- varna_7.jpg" />
+    <Content Include="Documents\halokoliten nekropol- varna_Images\halokoliten nekropol- varna_8.jpg" />
+    <Content Include="Documents\halokoliten nekropol- varna_Images\halokoliten nekropol- varna_9.jpg" />
+    <Content Include="Documents\halokoliten_nekropol-varna.htm" />
+    <Content Include="Documents\kiustendil - bazilika_Images\kiustendil - bazilika_1.jpg" />
+    <Content Include="Documents\kiustendil - termi_Images\kiustendil - termi_1.jpg" />
+    <Content Include="Documents\kiustendil-bazilika.htm" />
+    <Content Include="Documents\kiustendil-termi.htm" />
+    <Content Include="Documents\madarski konnik - pliska_Images\madarski konnik - pliska_1.jpg" />
+    <Content Include="Documents\madarski konnik - pliska_Images\madarski konnik - pliska_2.jpg" />
+    <Content Include="Documents\madarski_konnik-pliska.htm" />
+    <Content Include="Documents\migila golqmata kosmatka - stara zagora_Images\migila golqmata kosmatka - stara zagora_1.jpg" />
+    <Content Include="Documents\migila golqmata kosmatka - stara zagora_Images\migila golqmata kosmatka - stara zagora_2.jpg" />
+    <Content Include="Documents\migila_golqmata_kosmatka-starazagora.htm" />
+    <Content Include="Documents\neolitni jilishta - stara zagora_Images\neolitni jilishta - stara zagora_1.jpg" />
+    <Content Include="Documents\neolitni jilishta - stara zagora_Images\neolitni jilishta - stara zagora_2.jpg" />
+    <Content Include="Documents\neolitni jilishta - stara zagora_Images\neolitni jilishta - stara zagora_3.jpg" />
+    <Content Include="Documents\neolitni jilishta - stara zagora_Images\neolitni jilishta - stara zagora_4.jpg" />
+    <Content Include="Documents\neolitni jilishta - stara zagora_Images\neolitni jilishta - stara zagora_5.jpg" />
+    <Content Include="Documents\neolitni_jilishta-stara_zagora.htm" />
+    <Content Include="Documents\nesebar - carkva isus hristos pantokrator_Images\nesebar - carkva isus hristos pantokrator_1.jpg" />
+    <Content Include="Documents\nesebar - carkva isus hristos pantokrator_Images\nesebar - carkva isus hristos pantokrator_2.jpg" />
+    <Content Include="Documents\nesebar - carkva isus hristos pantokrator_Images\nesebar - carkva isus hristos pantokrator_3.png" />
+    <Content Include="Documents\nesebar - carkva isus hristos pantokrator_Images\nesebar - carkva isus hristos pantokrator_4.jpg" />
+    <Content Include="Documents\nesebar - carkva isus hristos pantokrator_Images\nesebar - carkva isus hristos pantokrator_5.jpg" />
+    <Content Include="Documents\nesebar - carkva isus hristos pantokrator_Images\nesebar - carkva isus hristos pantokrator_6.png" />
+    <Content Include="Documents\nesebar carkva sv.stefan_Images\nesebar carkva sv.stefan_1.jpg" />
+    <Content Include="Documents\nesebar carkva sv.stefan_Images\nesebar carkva sv.stefan_10.jpg" />
+    <Content Include="Documents\nesebar carkva sv.stefan_Images\nesebar carkva sv.stefan_11.jpg" />
+    <Content Include="Documents\nesebar carkva sv.stefan_Images\nesebar carkva sv.stefan_2.png" />
+    <Content Include="Documents\nesebar carkva sv.stefan_Images\nesebar carkva sv.stefan_3.png" />
+    <Content Include="Documents\nesebar carkva sv.stefan_Images\nesebar carkva sv.stefan_4.jpg" />
+    <Content Include="Documents\nesebar carkva sv.stefan_Images\nesebar carkva sv.stefan_5.jpg" />
+    <Content Include="Documents\nesebar carkva sv.stefan_Images\nesebar carkva sv.stefan_6.jpg" />
+    <Content Include="Documents\nesebar carkva sv.stefan_Images\nesebar carkva sv.stefan_7.jpg" />
+    <Content Include="Documents\nesebar carkva sv.stefan_Images\nesebar carkva sv.stefan_8.jpg" />
+    <Content Include="Documents\nesebar carkva sv.stefan_Images\nesebar carkva sv.stefan_9.jpg" />
+    <Content Include="Documents\nesebar-carkva_isus_hristos_pantokrator.htm" />
+    <Content Include="Documents\nesebar_carkva_sv.stefan.htm" />
+    <Content Include="Documents\nove - bazilika_Images\nove - bazilika_1.jpg" />
+    <Content Include="Documents\nove - bazilika_Images\nove - bazilika_2.jpg" />
+    <Content Include="Documents\nove-bazilika.htm" />
+    <Content Include="Documents\panteon na g.s.rakovski_Images\panteon na g.s.rakovski_1.jpg" />
+    <Content Include="Documents\panteon na g.s.rakovski_Images\panteon na g.s.rakovski_2.jpg" />
+    <Content Include="Documents\panteon_na_g.s.rakovski.htm" />
+    <Content Include="Documents\rilski manastir_Images\rilski manastir_1.jpg" />
+    <Content Include="Documents\rilski manastir_Images\rilski manastir_2.jpg" />
+    <Content Include="Documents\rilski manastir_Images\rilski manastir_3.jpg" />
+    <Content Include="Documents\rilski manastir_Images\rilski manastir_4.jpg" />
+    <Content Include="Documents\rilski_manastir.htm" />
+    <Content Include="Documents\rotonda sv.georgi - sofia_Images\rotonda sv.georgi - sofia_1.jpg" />
+    <Content Include="Documents\rotonda sv.georgi - sofia_Images\rotonda sv.georgi - sofia_2.png" />
+    <Content Include="Documents\rotonda sv.georgi - sofia_Images\rotonda sv.georgi - sofia_3.jpg" />
+    <Content Include="Documents\rotonda sv.georgi - sofia_Images\rotonda sv.georgi - sofia_4.png" />
+    <Content Include="Documents\rotonda sv.georgi - sofia_Images\rotonda sv.georgi - sofia_5.jpg" />
+    <Content Include="Documents\rotonda sv.georgi - sofia_Images\rotonda sv.georgi - sofia_6.png" />
+    <Content Include="Documents\rotonda_sv.georgi-sofia.htm" />
     <Content Include="Images\buttons\pan.png" />
     <Content Include="Images\doc.png" />
     <Content Include="Images\event.png" />
@@ -1145,13 +1227,6 @@
     <Compile Include="AddSiteControl.ascx.designer.cs">
       <DependentUpon>AddSiteControl.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Articles.aspx.cs">
-      <DependentUpon>Articles.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Articles.aspx.designer.cs">
-      <DependentUpon>Articles.aspx</DependentUpon>
-    </Compile>
     <Compile Include="DB\DatabaseManager.cs" />
     <Compile Include="DB\SightsModel.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1247,19 +1322,12 @@
     <None Include="scripts\openlayers\tools\rc.sh" />
     <None Include="scripts\openlayers\tools\release.sh" />
     <None Include="scripts\openlayers\tools\update_dev_dir.sh" />
-    <None Include="TestCode.cs_" />
     <Compile Include="SitesAdd.aspx.cs">
       <DependentUpon>SitesAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SitesAdd.aspx.designer.cs">
       <DependentUpon>SitesAdd.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TestCode.cs.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TestCode.cs.designer.cs">
-      <DependentUpon>TestCode.cs.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

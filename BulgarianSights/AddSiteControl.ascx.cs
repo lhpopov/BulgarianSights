@@ -118,61 +118,68 @@ namespace BulgarianSights
             //siteX.Style["background"] = "";
             //siteY.Style["background"] = "";
             //ErrorLiteral.Text = "";
-            SightsDBEntities dbContext = new SightsDBEntities();
 
-            switch (SiteTypeDropDown.SelectedIndex)
+            if (NameSite.Text != "" && siteX.Text != "" && siteY.Text != "" && siteText.Text != "" && SiteTypeDropDown.SelectedIndex != 0)
             {
-                case 1:
-                    /* Create Site Object*/
-                    CulturalAndHistoricSites newSite = new CulturalAndHistoricSites();
-                    newSite.siteName = NameSite.Text;
-                    newSite.area = area.Text;
-                    newSite.location = location.Text;
-                    newSite.age = age.Text;
-                    newSite.importance = importance.Text;
-                    newSite.culture = culture.Text;
-                    newSite.siteX = siteX.Text;
-                    newSite.siteY = siteY.Text;
-                    newSite.siteText = siteText.Text;
+                SightsDBEntities dbContext = new SightsDBEntities();
 
-                    dbContext.AddToCulturalAndHistoricSites(newSite);
-                    dbContext.SaveChanges();
+                switch (SiteTypeDropDown.SelectedIndex)
+                {
+                    case 1:
+                        /* Create Site Object*/
+                        CulturalAndHistoricSites newSite = new CulturalAndHistoricSites();
+                        newSite.siteName = NameSite.Text;
+                        newSite.area = area.Text;
+                        newSite.location = location.Text;
+                        newSite.age = age.Text;
+                        newSite.importance = importance.Text;
+                        newSite.culture = culture.Text;
+                        newSite.siteX = siteX.Text;
+                        newSite.siteY = siteY.Text;
+                        newSite.siteText = "Documents/" + siteText.Text;
 
-                    break;
+                        dbContext.AddToCulturalAndHistoricSites(newSite);
+                        dbContext.SaveChanges();
 
-                case 2:
-                    /* Create Document Object*/
-                    Documents newDoc = new Documents();
-                    newDoc.documentName = NameSite.Text;
-                    newDoc.area = area.Text;
-                    newDoc.location = location.Text;
-                    newDoc.age = age.Text;
-                    newDoc.importance = importance.Text;
-                    newDoc.culture = culture.Text;
-                    newDoc.docX = siteX.Text;
-                    newDoc.docY = siteY.Text;
-                    newDoc.documentText = siteText.Text;
+                        break;
 
-                    dbContext.AddToDocuments(newDoc);
-                    dbContext.SaveChanges();
-                    break;
+                    case 2:
+                        /* Create Document Object*/
+                        Documents newDoc = new Documents();
+                        newDoc.documentName = NameSite.Text;
+                        newDoc.area = area.Text;
+                        newDoc.location = location.Text;
+                        newDoc.age = age.Text;
+                        newDoc.importance = importance.Text;
+                        newDoc.culture = culture.Text;
+                        newDoc.docX = siteX.Text;
+                        newDoc.docY = siteY.Text;
+                        newDoc.documentText = "Documents/" + siteText.Text;
 
-                case 3:
-                    /* Create Event Object*/
-                    EventSite newEvent = new EventSite();
-                    newEvent.eventName = NameSite.Text;
-                    newEvent.area = area.Text;
-                    newEvent.location = location.Text;
-                    newEvent.age = age.Text;
-                    newEvent.date = DateEvent.Text;
-                    newEvent.eventX = siteX.Text;
-                    newEvent.eventY = siteY.Text;
-                    newEvent.eventText = siteText.Text;
+                        dbContext.AddToDocuments(newDoc);
+                        dbContext.SaveChanges();
+                        break;
 
-                    dbContext.AddToEventSite(newEvent);
-                    dbContext.SaveChanges();
+                    case 3:
+                        /* Create Event Object*/
+                        EventSite newEvent = new EventSite();
+                        newEvent.eventName = NameSite.Text;
+                        newEvent.area = area.Text;
+                        newEvent.location = location.Text;
+                        newEvent.age = age.Text;
+                        newEvent.date = DateEvent.Text;
+                        newEvent.eventX = siteX.Text;
+                        newEvent.eventY = siteY.Text;
+                        newEvent.eventText = "Documents/" + siteText.Text;
 
-                    break;
+                        dbContext.AddToEventSite(newEvent);
+                        dbContext.SaveChanges();
+
+                        break;
+                }
+
+                AddSiteControlWrapper.InnerHtml = "<h1 style='color: white;'>Обектът беше успешно записан!</h1>";
+
             }
             /* End of Switch Case statement */
 
