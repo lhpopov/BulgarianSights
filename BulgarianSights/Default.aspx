@@ -106,7 +106,7 @@
 
     <script type="text/javascript">
         var header = 120;   
-        var footer = 20;
+        var footer = 40;
         var height = $(window).height() - header - footer + 'px';
         var minheight = $("#map").css('min-height');
 

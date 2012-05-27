@@ -26,9 +26,9 @@ function addMarkerToMap(x, y, objectName) {
 
 
 function ShowObjectsOnLoadMap() {
-    var layerNames = new Array("Културно-исторически обекти", "Събития", "Документи")
+    var layerNames = new Array("Културно-исторически обекти", "Документи", "Събития")
     var markers; // = new OpenLayers.Layer.Markers("Културно-исторически обекти");
-    var size = new OpenLayers.Size(32, 32);
+    var size = new OpenLayers.Size(48, 48);
     var offset = new OpenLayers.Pixel(-(size.w / 2), -size.h);
     var objects = new Array("GridViewSiteObjects", "GridViewDocObjects", "GridViewEventObjects");
     var grid;
@@ -62,11 +62,11 @@ function ShowObjectsOnLoadMap() {
             var icon;
             //addMarkerToMap(site.x, sitey, objectName);
             if (objects[layer] == "GridViewSiteObjects")
-                icon = new OpenLayers.Icon('images/doc.png', size, offset);
+                icon = new OpenLayers.Icon('images/500201300371_lrg.png', size, offset);
             else if (objects[layer] == "GridViewEventObjects")
                 icon = new OpenLayers.Icon('images/event.png', size, offset);
-            else
-                icon = new OpenLayers.Icon('images/buttons/pan.png', size, offset);
+            else if (objects[layer] == "GridViewDocObjects")
+                icon = new OpenLayers.Icon('images/doc.png', size, offset);
 
             //var icon = mainIcon.clone();
             var coords = new OpenLayers.LonLat(x, y);

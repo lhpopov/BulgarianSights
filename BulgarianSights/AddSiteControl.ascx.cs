@@ -179,16 +179,11 @@ namespace BulgarianSights
                 }
 
                 AddSiteControlWrapper.InnerHtml = "<h1 style='color: white;'>Обектът беше успешно записан!</h1>";
+                //Response.AddHeader("Refresh", "1");                
+                Response.Redirect(Request.RawUrl);
 
             }
             /* End of Switch Case statement */
-
-            
-            //_Default bla = new _Default();
-            //bla.GetCulturalAndHistoricSitesOnMap();
-
-            //Page(_Default).GetCulturalAndHistoricSitesOnMap();
-            //ScriptManager.RegisterOnSubmitStatement(this, this.GetType(), "bla", "init();");
         }
     }
 }
