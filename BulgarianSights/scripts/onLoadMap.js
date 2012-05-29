@@ -37,6 +37,8 @@ function ShowObjectsOnLoadMap() {
         map.addLayer(markers);
 
         grid = document.getElementById(objects[layer]);
+        if (grid == null)
+            continue;
 
         for (var i = 1; i < grid.rows.length; i++ ) {
             
