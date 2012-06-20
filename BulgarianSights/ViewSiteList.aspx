@@ -25,12 +25,34 @@
         $("#ListWrapper").css('height', height);
         $("#ViewSiteContent").css('display', 'block');
     }
+
+    $(document).ready(function () {
+        $("#SearchBox").click(function (e) {
+            var $this = $(this);
+            //clickCounter += 1;
+                        var clickCounter = $this.data('clickCounter') || 0;
+                        clickCounter += 1;
+                        $this.data('clickCounter', clickCounter);
+            //alert(clickCounter);
+            if (clickCounter == 1) {
+                $this.val('');
+            }
+        });
+    });
 </script>
     <div id="viewSiteList" style="width: 250px;
         min-height: 400px;">
         <asp:DropDownList ID="ViewSiteType" runat="server" ClientIDMode="Static" OnSelectedIndexChanged="InitListGridView"
             OnInit="ViewSiteTypeDropDown_Init" AutoPostBack="true">
         </asp:DropDownList>
+        
+
+
+        <asp:TextBox ID="SearchBox" runat="server" ClientIDMode="Static" style="width: 185px; margin-top: 6px;">Търсене...</asp:TextBox><asp:Button ID="SearchButton" runat="server" ClientIDMode="Static" Text="Търси" OnClick="SearchSiteObject" />
+
+
+
+
         <asp:UpdatePanel ID="ViewSiteUpdate" runat="server" UpdateMode="Conditional">
             <Triggers>
             <asp:AsyncPostBackTrigger ControlID="ViewSiteType" EventName="SelectedIndexChanged" />

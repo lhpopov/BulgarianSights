@@ -1,4 +1,4 @@
-﻿function ShowObjectOnMap(x, y) {
+﻿  function ShowObjectOnMap(x, y) {
     var grid = document.getElementById("GridView1");
     //var x = grid.rows[1].cells[9].innerHTML;
     //var y = grid.rows[1].cells[10].innerHTML;

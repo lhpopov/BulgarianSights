@@ -18,13 +18,13 @@ namespace BulgarianSights
             DocGridView.ShowHeader = true;
             EventGridView.ShowHeader = true;
 
-            GetCulturalAndHistoricSitesOnMap();
+            GetCulturalAndHistoricSitesOnMap("");
             ListGridView.Visible = true;
 
-            GetDocumentsOnMap();
+            GetDocumentsOnMap("");
             DocGridView.Visible = true;
 
-            GetEventsOnMap();
+            GetEventsOnMap("");
             EventGridView.Visible = true;
         }
 
@@ -46,13 +46,13 @@ namespace BulgarianSights
             {
                 ListGridView.ShowHeader = true;
 
-                GetCulturalAndHistoricSitesOnMap();
+                GetCulturalAndHistoricSitesOnMap("");
                 ListGridView.Visible = true;
 
-                GetDocumentsOnMap();
+                GetDocumentsOnMap("");
                 DocGridView.Visible = true;
 
-                GetEventsOnMap();
+                GetEventsOnMap("");
                 EventGridView.Visible = true;
             }
             if (ViewSiteType.SelectedIndex == 1)
@@ -63,7 +63,7 @@ namespace BulgarianSights
                     EventGridView.Visible = false;
                 }
                 
-                GetCulturalAndHistoricSitesOnMap();
+                GetCulturalAndHistoricSitesOnMap("");
                 ListGridView.Visible = true;
             }
             if (ViewSiteType.SelectedIndex == 2)
@@ -76,7 +76,7 @@ namespace BulgarianSights
                 }
 
                 DocGridView.ShowHeader = true;
-                GetDocumentsOnMap();
+                GetDocumentsOnMap("");
                 DocGridView.Visible = true;
             }
             if (ViewSiteType.SelectedIndex == 3)
@@ -88,7 +88,7 @@ namespace BulgarianSights
                 }
 
                 EventGridView.ShowHeader = true;
-                GetEventsOnMap();
+                GetEventsOnMap("");
                 EventGridView.Visible = true;
             }
         }
@@ -104,10 +104,11 @@ namespace BulgarianSights
         //    }
         //}
 
-        public void GetCulturalAndHistoricSitesOnMap()
+        public void GetCulturalAndHistoricSitesOnMap(string searchString)
         {
             SightsDBEntities dbContext = new SightsDBEntities();
             List<CulturalAndHistoricSites> query = (from CulturalAndHistoricSites p in dbContext.CulturalAndHistoricSites
+                                                    where p.siteName.Contains(searchString)
                                                     select p).OfType<CulturalAndHistoricSites>().ToList();
 
             ListGridView.DataSource = query;
@@ -115,24 +116,50 @@ namespace BulgarianSights
             //return query;
         }
 
-        public void GetDocumentsOnMap()
+        public void GetDocumentsOnMap(string searchString)
         {
             SightsDBEntities dbContext = new SightsDBEntities();
             List<Documents> query = (from Documents p in dbContext.Documents
+                                     where p.documentName.Contains(searchString)
                                      select p).OfType<Documents>().ToList();
 
             DocGridView.DataSource = query;
             DocGridView.DataBind();
         }
 
-        public void GetEventsOnMap()
+        public void GetEventsOnMap(string searchString)
         {
             SightsDBEntities dbContext = new SightsDBEntities();
             List<EventSite> query = (from EventSite p in dbContext.EventSite
+                                     where p.eventName.Contains(searchString)
                                      select p).OfType<EventSite>().ToList();
 
             EventGridView.DataSource = query;
             EventGridView.DataBind();
+        }
+
+        public void SearchSiteObject(object sender, EventArgs e)
+        {
+            string searchString = SearchBox.Text;
+            if(searchString =="*" || searchString =="всички")
+                searchString = "";
+
+            GetCulturalAndHistoricSitesOnMap(searchString);
+            ListGridView.Visible = true;
+
+            GetDocumentsOnMap(searchString);
+            DocGridView.Visible = true;
+
+            GetEventsOnMap(searchString);
+            EventGridView.Visible = true;
+            
+            //SightsDBEntities dbContext = new SightsDBEntities();
+            //List<CulturalAndHistoricSites> query = (from CulturalAndHistoricSites p in dbContext.CulturalAndHistoricSites
+            //                                        where p.siteName.Contains(searchString)
+            //                                        select p).OfType<CulturalAndHistoricSites>().ToList() ;
+
+            //ListGridView.DataSource = query;
+            //ListGridView.DataBind();
         }
     }
 }
