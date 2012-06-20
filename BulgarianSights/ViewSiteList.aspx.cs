@@ -108,7 +108,7 @@ namespace BulgarianSights
         {
             SightsDBEntities dbContext = new SightsDBEntities();
             List<CulturalAndHistoricSites> query = (from CulturalAndHistoricSites p in dbContext.CulturalAndHistoricSites
-                                                    where p.siteName.Contains(searchString)
+                                                    where p.siteName.Contains(searchString) || p.location.Contains(searchString) || p.area.Contains(searchString)
                                                     select p).OfType<CulturalAndHistoricSites>().ToList();
 
             ListGridView.DataSource = query;
@@ -120,7 +120,7 @@ namespace BulgarianSights
         {
             SightsDBEntities dbContext = new SightsDBEntities();
             List<Documents> query = (from Documents p in dbContext.Documents
-                                     where p.documentName.Contains(searchString)
+                                     where p.documentName.Contains(searchString) || p.location.Contains(searchString) || p.area.Contains(searchString)
                                      select p).OfType<Documents>().ToList();
 
             DocGridView.DataSource = query;
@@ -131,7 +131,7 @@ namespace BulgarianSights
         {
             SightsDBEntities dbContext = new SightsDBEntities();
             List<EventSite> query = (from EventSite p in dbContext.EventSite
-                                     where p.eventName.Contains(searchString)
+                                     where p.eventName.Contains(searchString) || p.location.Contains(searchString) || p.area.Contains(searchString)
                                      select p).OfType<EventSite>().ToList();
 
             EventGridView.DataSource = query;

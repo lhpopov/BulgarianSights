@@ -19,12 +19,13 @@ function addMarkerToMap(x, y, objectName) {
     var marker = new OpenLayers.Marker(coords, icon);
     var markers = new OpenLayers.Layer.Markers(objectName);
     map.addLayer(markers);
+    marker.events.register('mousedown', marker, function (evt) { alert(this.icon.url); OpenLayers.Event.stop(evt); });
     markers.addMarker(marker);
 
 }
 
 
-
+var qwe = "qw";
 function ShowObjectsOnLoadMap() {
     var layerNames = new Array("Културно-исторически обекти", "Документи", "Събития")
     var markers; // = new OpenLayers.Layer.Markers("Културно-исторически обекти");
@@ -73,9 +74,19 @@ function ShowObjectsOnLoadMap() {
             //var icon = mainIcon.clone();
             var coords = new OpenLayers.LonLat(x, y);
             var marker = new OpenLayers.Marker(coords, icon);
+            //marker.events.register('mousedown', marker, function (evt) { alert(this.icon.url); OpenLayers.Event.stop(evt); });
+            marker.events.register("click", marker, function (e) {
+                popup = new OpenLayers.Popup(qwe,
+                   coords,
+                   new OpenLayers.Size(200, 200),
+                   "example popup",
+                   true);
 
+                map.addPopup(popup);
+            });
+            qwe += "Z";
             markers.addMarker(marker);
-
+            //if (i == 1) break;
             //}
         }
     }

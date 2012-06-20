@@ -87,6 +87,9 @@ function init() {
 //    var icon = new OpenLayers.Icon('http://www.openlayers.org/dev/img/marker.png', size, offset);
 //    markers.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(2810458.86, 5258913.45), icon));
 
+//    var newl = new OpenLayers.Layer.Text("text", { location: "./textfile.txt" });
+//    map.addLayer(newl);
+
     ShowObjectsOnLoadMap();
 
 }

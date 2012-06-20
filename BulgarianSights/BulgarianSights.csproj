@@ -1184,6 +1184,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="textfile.txt" />
     <Content Include="ViewSiteList.ascx" />
     <Content Include="ViewSiteList.aspx" />
     <Content Include="Web.config" />
@@ -1351,12 +1352,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>65032</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
+          <IISUrl>http://192.168.111.7:8080/BulgarianSights</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
