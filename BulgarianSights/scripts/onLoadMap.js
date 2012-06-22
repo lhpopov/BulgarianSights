@@ -1,4 +1,7 @@
-﻿  function ShowObjectOnMap(x, y) {
+﻿/* -----------------------------------*/
+
+
+  function ShowObjectOnMap(x, y) {
     var grid = document.getElementById("GridView1");
     //var x = grid.rows[1].cells[9].innerHTML;
     //var y = grid.rows[1].cells[10].innerHTML;
@@ -19,13 +22,14 @@ function addMarkerToMap(x, y, objectName) {
     var marker = new OpenLayers.Marker(coords, icon);
     var markers = new OpenLayers.Layer.Markers(objectName);
     map.addLayer(markers);
-    marker.events.register('mousedown', marker, function (evt) { alert(this.icon.url); OpenLayers.Event.stop(evt); });
+    //marker.events.register('mousedown', marker, function (evt) { alert(this.icon.url); OpenLayers.Event.stop(evt); });
     markers.addMarker(marker);
 
 }
 
-
+var popup = new Array();
 var qwe = "qw";
+
 function ShowObjectsOnLoadMap() {
     var layerNames = new Array("Културно-исторически обекти", "Документи", "Събития")
     var markers; // = new OpenLayers.Layer.Markers("Културно-исторически обекти");
@@ -54,10 +58,24 @@ function ShowObjectsOnLoadMap() {
 
             var cellX = 8;
             var cellY = 9;
-
+            
+            var cellName = 2;
+            var cellLocation= 3;
+            var cellArea = 4;
+            var cellInfoLink = 1;
 
             var x = grid.rows[i].cells[cellX].innerHTML;
             var y = grid.rows[i].cells[cellY].innerHTML;
+            
+            var siteName = '<h2>' + grid.rows[i].cells[cellName].innerHTML + '<h2>';
+            var siteLocation = '<h3>населено място: <b> ' + grid.rows[i].cells[cellLocation].innerHTML + '</b></h3>';
+            var siteArea = '<h3>област: <b>' + grid.rows[i].cells[cellArea].innerHTML + '</b></h3>';
+            var infoLink = grid.rows[i].cells[cellInfoLink].innerHTML;
+            //alert(infoLink);
+
+            /* alert(siteName);
+            alert(siteLocation);
+            alert(siteArea );*/
 
             //var objectName = grid.rows[i].cells[2].innerHTML;
             var zoomLevel = 7;
@@ -74,23 +92,59 @@ function ShowObjectsOnLoadMap() {
             //var icon = mainIcon.clone();
             var coords = new OpenLayers.LonLat(x, y);
             var marker = new OpenLayers.Marker(coords, icon);
-            //marker.events.register('mousedown', marker, function (evt) { alert(this.icon.url); OpenLayers.Event.stop(evt); });
-            marker.events.register("click", marker, function (e) {
-                popup = new OpenLayers.Popup(qwe,
-                   coords,
-                   new OpenLayers.Size(200, 200),
-                   "example popup",
-                   true);
 
-                map.addPopup(popup);
-            });
-            qwe += "Z";
-            markers.addMarker(marker);
-            //if (i == 1) break;
-            //}
+            //alert(grid.rows[i]);
+            popupClass = AutoSizeFramedCloudMinSize;
+            var infoButton = '<input type="button" value="информация за обекта" onclick="loadInfo(\'' + infoLink + '\')"/>';
+            //var bla = "<script type='text/javascript'>loadInfo('" + infoLink + "'); </script>";
+            //var bla = $("#hiddenBla").load(infoLink);
+
+            popupContentHTML = siteName + siteLocation + siteArea + '<br /> <br />';// + infoButton + '<div id=\'blaQ\'></div>';
+            addMarker(coords, popupClass, popupContentHTML, true, true, markers, marker);
+
         }
     }
 
 }
+
+AutoSizeFramedCloudMinSize = OpenLayers.Class(OpenLayers.Popup.FramedCloud, {
+    'autoSize': true,
+    //'minSize': new OpenLayers.Size(400, 400)
+});
+
+//anchored bubble popup small contents autosize minsize closebox
+/*
+ll = new OpenLayers.LonLat(-20, -15);
+popupClass = AutoSizeFramedCloudMinSize;
+popupContentHTML = '<img src="img/small.jpg"></img>';
+addMarker(ll, popupClass, popupContentHTML, true, layerMarkers);
+*/
+
+function addMarker(ll, popupClass, popupContentHTML, closeBox, overflow, layerMarkers, markerAdded) {
+
+    var feature = new OpenLayers.Feature(layerMarkers, ll); 
+            feature.closeBox = closeBox;
+            feature.popupClass = popupClass;
+            feature.data.popupContentHTML = popupContentHTML;
+            feature.data.overflow = (overflow) ? "auto" : "hidden";
+            feature.marker = markerAdded;
+            
+            var marker = feature.marker; //  feature.createMarker();
+
+            var markerClick = function (evt) {
+                if (this.popup == null) {
+                    this.popup = this.createPopup(this.closeBox);
+                    map.addPopup(this.popup);
+                    this.popup.show();
+                } else {
+                    this.popup.toggle();
+                }
+                currentPopup = this.popup;
+                OpenLayers.Event.stop(evt);
+            };
+            marker.events.register("mousedown", feature, markerClick);
+
+            layerMarkers.addMarker(marker);
+        }
 
 

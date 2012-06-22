@@ -17,6 +17,9 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <script type="text/javascript">
+        function loadInfo(href) {
+            $("#blaQ").load(href); //, function () { $(this).ready(function () { bla(); }) });
+        }
 
         function getCoordsClick() {
             var coords = $('#LabelCoords').html();
@@ -188,24 +191,6 @@
 
     </ContentTemplate>
 </asp:UpdatePanel>
-
-    <%--<h1>
-    
-    map div
-    width: 590px;
-    height: 390px;
-    ratio: 1,5
-    </h1>--%>
-
-
-<script type="text/javascript">
-    $(document).ready(function () {
-
-
-
-    });
-</script>
-
 </asp:Content>
 
 
