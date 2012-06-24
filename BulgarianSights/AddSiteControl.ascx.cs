@@ -35,31 +35,21 @@ namespace BulgarianSights
             {
                 DateTr.Visible = false;
                 ImportanceTr.Visible = true;
-
-                //area.Text = "Обект";
             }
             else if (SiteTypeDropDown.SelectedIndex == 2)
             {
                 DateTr.Visible = false;
                 ImportanceTr.Visible = true;
-
-                //area.Text = "Документ";
             }
             else if (SiteTypeDropDown.SelectedIndex == 3)
             {
-                area.Text = "Събитие";
                 DateTr.Visible = true;
                 ImportanceTr.Visible = false;
             }
-            //else if
-            //(SiteTypeDropDown.SelectedIndex == 0)
-            //    ErrorSiteType.InnerHtml = "Моля изберете тип на създавания обект.";
         }
 
         protected void SaveSite_Click(object sender, EventArgs e)
         {
-            //if (NameSite.Text == "" || siteX.Text == "" || siteY.Text == "")
-            //{
             if (SiteTypeDropDown.SelectedIndex == 0)
             {
                 SiteTypeDropDown.Style["background"] = "#FDC4C4";
@@ -113,11 +103,6 @@ namespace BulgarianSights
                 siteText.Style["background"] = "";
                 ErrorLiteral.Text = "";
             }
-
-            //NameSite.Style["background"] = "";
-            //siteX.Style["background"] = "";
-            //siteY.Style["background"] = "";
-            //ErrorLiteral.Text = "";
 
             if (NameSite.Text != "" && siteX.Text != "" && siteY.Text != "" && siteText.Text != "" && SiteTypeDropDown.SelectedIndex != 0)
             {
@@ -179,7 +164,6 @@ namespace BulgarianSights
                 }
 
                 AddSiteControlWrapper.InnerHtml = "<h1 style='color: white;'>Обектът беше успешно записан!</h1>";
-                //Response.AddHeader("Refresh", "1");                
                 Response.Redirect(Request.RawUrl);
 
             }

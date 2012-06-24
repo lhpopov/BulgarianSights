@@ -13,7 +13,6 @@ namespace BulgarianSights
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //  GetCulturalAndHistoricSitesOnMap();
             ListGridView.ShowHeader = true;
             DocGridView.ShowHeader = true;
             EventGridView.ShowHeader = true;
@@ -93,17 +92,6 @@ namespace BulgarianSights
             }
         }
 
-        //public class InfoTempalte : ITemplate
-        //{
-        //    public void InstantiateIn(Control container)
-        //    {
-        //        Label a = new Label();
-        //        a.ID = "info";
-        //        a.Text = Eval("siteText").ToString();
-        //        container.Controls.Add(a);
-        //    }
-        //}
-
         public void GetCulturalAndHistoricSitesOnMap(string searchString)
         {
             SightsDBEntities dbContext = new SightsDBEntities();
@@ -113,7 +101,6 @@ namespace BulgarianSights
 
             ListGridView.DataSource = query;
             ListGridView.DataBind();
-            //return query;
         }
 
         public void GetDocumentsOnMap(string searchString)
@@ -141,7 +128,7 @@ namespace BulgarianSights
         public void SearchSiteObject(object sender, EventArgs e)
         {
             string searchString = SearchBox.Text;
-            if(searchString =="*" || searchString =="всички")
+            if(searchString =="*" || searchString =="всички" || searchString == "Търсене..." )
                 searchString = "";
 
             GetCulturalAndHistoricSitesOnMap(searchString);
@@ -153,13 +140,6 @@ namespace BulgarianSights
             GetEventsOnMap(searchString);
             EventGridView.Visible = true;
             
-            //SightsDBEntities dbContext = new SightsDBEntities();
-            //List<CulturalAndHistoricSites> query = (from CulturalAndHistoricSites p in dbContext.CulturalAndHistoricSites
-            //                                        where p.siteName.Contains(searchString)
-            //                                        select p).OfType<CulturalAndHistoricSites>().ToList() ;
-
-            //ListGridView.DataSource = query;
-            //ListGridView.DataBind();
         }
     }
 }

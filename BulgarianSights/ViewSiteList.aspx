@@ -8,6 +8,10 @@
     <script src="scripts/onLoadMap.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+            $("#NavigationMenu li a")[1].style.background = '#bfcbd6';
+            $("#NavigationMenu li a")[1].style.color = '#465c71';
+            $("#NavigationMenu li a")[1].style.textDecoration = 'none';
+
             $('a.level1[href*=showAddForm]').hide();
         });
         function loadInfo(href) {

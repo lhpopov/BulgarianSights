@@ -17,6 +17,10 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <script type="text/javascript">
+        $("#NavigationMenu li a")[0].style.background = '#bfcbd6';
+        $("#NavigationMenu li a")[0].style.color = '#465c71';
+        $("#NavigationMenu li a")[0].style.textDecoration = 'none';
+
         function loadInfo(href) {
             $("#blaQ").load(href); //, function () { $(this).ready(function () { bla(); }) });
         }
@@ -100,10 +104,6 @@
         }
     </script>
 
-
-<%--<asp:UpdatePanel ID="UpdatePanelMap" runat="server" UpdateMode="Always">
-    <ContentTemplate>--%>
-
     <div id="map" onclick="getCoordsClick()" runat="server" clientidmode="static">
     </div>
 
@@ -130,54 +130,10 @@
 
     <div id="LabelCoords" style="width: auto; background: white; color: black;">
     </div>
-    
-    <%--<div id="panel" class="olToolbar" style="width: 400px; height: 30px; border: solid 3px blue;">
-    </div>--%>
-
-
-    <%--<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-            DataKeyNames="idSite" DataSourceID="SqlDataSource1" ClientIDMode="Static">
-            <Columns>
-                <asp:BoundField DataField="idSite" HeaderText="idSite" 
-                    InsertVisible="False" ReadOnly="True" SortExpression="idSite" />
-                <asp:BoundField DataField="siteText" HeaderText="site" 
-                    SortExpression="site" />
-                <asp:BoundField DataField="siteName" HeaderText="siteName" 
-                    SortExpression="siteName" />
-
-                <asp:BoundField DataField="area" HeaderText="area" SortExpression="area" />
-                <asp:BoundField DataField="location" HeaderText="location" 
-                    SortExpression="location" />
-                <asp:BoundField DataField="age" HeaderText="age" SortExpression="age" />
-                <asp:BoundField DataField="importance" HeaderText="importance" 
-                    SortExpression="importance" />
-                <asp:BoundField DataField="culture" HeaderText="culture" 
-                    SortExpression="culture" />
-                <asp:BoundField DataField="siteX" HeaderText="siteX" 
-                    SortExpression="siteX" />
-                <asp:BoundField DataField="siteY"   HeaderText="siteY"
-                    SortExpression="siteY" />
-                <asp:TemplateField HeaderText="Покажи на картата">
-                    <ItemTemplate>
-                        <a title="Покажи обект" onclick="ShowObjectOnMap(<%# Eval("siteX")%>,<%# Eval("siteY")%> )">Покажи обект</span>
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-            SelectCommand="SELECT * FROM [CulturalAndHistoricSites]">
-        </asp:SqlDataSource>--%>
-
-<%--    </ContentTemplate>
-</asp:UpdatePanel>--%>
 
 
 
 <asp:UpdatePanel ID="UpdatePanelMap" runat="server" UpdateMode="Always">
-<%--<Triggers>
-    <asp:AsyncPostBackTrigger ControlID="SaveSiteButton" EventName="Click" />
-</Triggers>--%>
     <ContentTemplate>
 
     <asp:GridView ID="GridViewEventObjects" runat="server" style="display: none;" ClientIDMode="Static">

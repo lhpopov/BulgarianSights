@@ -8,8 +8,6 @@ using System.Web.UI.WebControls;
 using BulgarianSights.DB;
 using BulgarianSights.HelpObjects;
 using System.Data.SqlClient;
-//using BulgarianSights.AddSiteControl;
-
 
 namespace BulgarianSights
 {
@@ -21,11 +19,6 @@ namespace BulgarianSights
             GetDocumentsOnMap();
             GetEventsOnMap();
 
-            //if (IsPostBack)
-            //{
-            //    GridViewSiteObjects.DataSource = GetCulturalAndHistoricSitesOnMap();
-            //    GridViewSiteObjects.DataBind();
-            //}
         }
 
 
@@ -41,7 +34,6 @@ namespace BulgarianSights
 
         }
 
-        //public List<CulturalAndHistoricSites> GetCulturalAndHistoricSitesOnMap()
         public void GetCulturalAndHistoricSitesOnMap()
         {
             SightsDBEntities dbContext = new SightsDBEntities();
@@ -50,7 +42,6 @@ namespace BulgarianSights
 
             GridViewSiteObjects.DataSource = query;
             GridViewSiteObjects.DataBind();
-            //return query;
         }
 
         public void GetDocumentsOnMap()
