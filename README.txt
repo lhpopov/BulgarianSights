@@ -1,1 +1,1 @@
-Burn Burn. We just set on fire  the Diploma project. Let us hope that we will put the very same (or at least part of it) effort that we put while drinking flamming shots in the bars. Peace.
+Bulgarian sights. The project includes map layer from googla maps and points layer for the sights objects. 
